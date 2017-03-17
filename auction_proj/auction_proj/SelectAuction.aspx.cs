@@ -12,6 +12,7 @@ namespace auction_proj
         public static String index;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label2.Text = "Welcome, " + BidderEditProfile.name;
            // this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             //ListBox1.Items.Add("WWO");
             //ListBox1.Items.Add("UNICEF");

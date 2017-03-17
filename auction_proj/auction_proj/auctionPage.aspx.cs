@@ -12,6 +12,12 @@ namespace auction_proj
         protected void Page_Load(object sender, EventArgs e)
         {
             Label1.Text = SelectAuction.index + " Auction Page";
+            if (SelectAuction.index == "WWO")
+                ListBox1.Items.Add("Faux Fur Coat");
+            if (SelectAuction.index == "UNICEF")
+                ListBox1.Items.Add("Finger Painting");
+            if (SelectAuction.index == "Red Cross")
+                ListBox1.Items.Add("Bandages");
         }
     }
 }
