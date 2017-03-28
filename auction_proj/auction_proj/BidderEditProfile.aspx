@@ -15,7 +15,10 @@
 <body>
     <form id="form1" runat="server">
     <div style="height: 369px; width: 681px">
+     
+        <br />
         <asp:Label ID="editLabel" runat="server" Font-Underline="true" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="true" ></asp:Label>
+       
         <br />
         <br />
         <table align="left" class="auto-style1">
@@ -87,22 +90,21 @@
             <tr>
                 <td>
         <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click"  />
+                  
 
                 </td>
             </tr>
         </table>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
-        <br />
-        <br />
-
+       
     </div>
+        <div>
+            <table align="right" class="auto-style1">
+      
+           <asp:Button ID="backToHome" runat="server" Text="Back To Home" Width="682px" OnClick="backToHome_Click" />
+      
+        </table>
+        </div>
   
     </form>
 </body>

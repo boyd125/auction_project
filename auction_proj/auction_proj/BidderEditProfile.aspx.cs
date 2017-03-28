@@ -93,5 +93,10 @@ namespace auction_proj
 
             editProfSubmit.Text = "Edit";
         }
+
+        protected void backToHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Main.aspx");
+        }
     }
 }
