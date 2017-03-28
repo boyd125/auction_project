@@ -49,24 +49,6 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.TextBox nameInput;
         
         /// <summary>
-        /// emailILabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailILabel;
-        
-        /// <summary>
-        /// emailInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailInput;
-        
-        /// <summary>
         /// phoneLabel control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,24 @@ namespace auction_proj {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox phoneInput;
+        
+        /// <summary>
+        /// emailILabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label emailILabel;
+        
+        /// <summary>
+        /// emailInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailInput;
         
         /// <summary>
         /// addressLabel control.
