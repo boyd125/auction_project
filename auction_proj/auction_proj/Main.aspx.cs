@@ -33,6 +33,11 @@ namespace auction_proj
                 case 3:
                     Response.Redirect("~/BidderEditProfile.aspx");
                     break;
+                case 4:
+                    Response.Redirect("~/BidderEditProfile.aspx");
+                    break;
+                
+               
             }
             
             
