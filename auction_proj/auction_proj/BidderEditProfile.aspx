@@ -83,7 +83,7 @@
         <asp:Label ID="zipLabel" runat="server" Font-Bold="true" Text="Zip Code: "></asp:Label>
                 </td>
                 <td>
-        <asp:TextBox ID="zipInput" runat="server" ></asp:TextBox>
+        <asp:TextBox ID="zipInput" runat="server" MaxLength="5" ></asp:TextBox>
 
                 </td>
             </tr>
