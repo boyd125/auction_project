@@ -47,6 +47,7 @@
                                     </td>
                                     <td class="auto-style10">
                                         <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
@@ -88,6 +89,7 @@
         </asp:Login>
                    <asp:TextBox ID="TextBox1" runat="server" Height="17px"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                   <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                    </div>
              </div>
     </form>

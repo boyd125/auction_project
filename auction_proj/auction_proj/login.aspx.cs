@@ -28,20 +28,29 @@ namespace auction_proj
             using (SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\senio102\Source\Repos\auction_project\auction_proj\auction_proj\App_Data\Database1.mdf; Integrated Security = True"))
             {
                 //
-                // Open the SqlConnection.
-                //
-                con.Open();
-                //
                 // The following code uses an SqlCommand based on the SqlConnection.
                 //
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Table1", con))
-                using (SqlDataReader reader = command.ExecuteReader())
+                //SqlCommand command = new SqlCommand("SELECT * FROM Table1", con);
+                //command.ExecuteNonQuery();
+                try
                 {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("{0} {1} {2}",
-                            reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
-                    }
+                    con.Open();
+                    SqlCommand add = new SqlCommand(@"INSERT INTO Table1 (username, password) VALUES ('user22', 'pwd')", con);
+                    add.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(@"SELECT Count(*) FROM Table1 
+                                        WHERE username=@uname and 
+                                        password=@pass", con);
+                    cmd.Parameters.AddWithValue("@uname", Login1.UserNameLabelText);
+                    cmd.Parameters.AddWithValue("@pass", Login1.PasswordLabelText);
+                    int result = (int)cmd.ExecuteScalar();
+                    if (result > 0)
+                        Label3.Text=("Login Success");
+                    else
+                        Label3.Text = ("Incorrect login");
+                }
+                catch (Exception ex)
+                {
+                    Label3.Text = ("Unexpected error:" + ex.Message);
                 }
             }
         }
