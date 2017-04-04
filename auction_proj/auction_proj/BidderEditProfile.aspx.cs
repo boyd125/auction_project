@@ -20,6 +20,7 @@ namespace auction_proj
         protected void Page_Load(object sender, EventArgs e)
         {
             name = login.username;
+            nameInput.Text = name;
         }
 
         protected void editProfSubmit_Click(object sender, EventArgs e)

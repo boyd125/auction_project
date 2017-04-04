@@ -34,9 +34,9 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"SELECT Count(*) FROM Table1 
-                                        WHERE username=@uname and 
-                                        password=@pass", con);
+                    SqlCommand cmd = new SqlCommand(@"SELECT Count(*) FROM Bidder 
+                                        WHERE account_email=@uname and 
+                                        account_password=@pass", con);
                     cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
                     cmd.Parameters.AddWithValue("@pass", TextBox2.Text);
                     int result = (int)cmd.ExecuteScalar();
@@ -71,7 +71,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Table1 (username, password) VALUES (@uname, @pass)", con);
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder (account_email, account_password) VALUES (@uname, @pass)", con);
                     cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
                     cmd.Parameters.AddWithValue("@pass", TextBox2.Text);
                     cmd.ExecuteNonQuery();
