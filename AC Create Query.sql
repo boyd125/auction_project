@@ -31,10 +31,10 @@ create table Bidder(
 	phone varchar(12),
 	street varchar(50),
 	city varchar(50),
-	states varchar(50),
+	us_state varchar(50),
 	zip varchar(50),
 	credit_card varchar(19),
-	primary key(email)
+	primary key(account_email)
 )
 
 create table Bid(
@@ -47,5 +47,6 @@ create table Bid(
 	foreign key(item) references Item(item_name),
 	primary key(bidder)
 )
+
 
 
