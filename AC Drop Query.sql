@@ -12,10 +12,10 @@ select item_name from Item
 
 --update bidder email
 update Bidder
-	set bidder_email = 'example.com'
-		where bidder_email = 'otherexample.com'
+	set account_email = 'example.com'
+		where account_email = 'otherexample.com'
 
 --update bidder phone
 update Bidder
 	set phone = '8888888888'
-		where bidder_email = 'otherexample.com'
+		where account_email = 'otherexample.com'
