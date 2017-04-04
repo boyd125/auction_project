@@ -8,10 +8,12 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Web.Security;
+
 namespace auction_proj
 {
     public partial class login : System.Web.UI.Page
     {
+        public static String username;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -39,7 +41,11 @@ namespace auction_proj
                     cmd.Parameters.AddWithValue("@pass", TextBox2.Text);
                     int result = (int)cmd.ExecuteScalar();
                     if (result > 0)
+                    {
                         Label3.Text = ("Login Success");
+                        username = TextBox1.Text;
+                        Response.Redirect("~/Main.aspx");
+                    }
                     else
                         Label3.Text = ("Incorrect login");
                 }
@@ -54,8 +60,8 @@ namespace auction_proj
         {
             // In a using statement, acquire the SqlConnection as a resource.
             //
-
-            using (SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\senio102\Source\Repos\auction_project\auction_proj\auction_proj\App_Data\Database1.mdf; Integrated Security = True"))
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
             {
                 //
                 // The following code uses an SqlCommand based on the SqlConnection.
@@ -75,6 +81,11 @@ namespace auction_proj
                     Label3.Text = ("Unexpected error:" + ex.Message);
                 }
             }
+        }
+
+        protected void LoginView1_ViewChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

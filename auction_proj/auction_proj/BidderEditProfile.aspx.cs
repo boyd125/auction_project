@@ -19,6 +19,7 @@ namespace auction_proj
         public static String zip;
         protected void Page_Load(object sender, EventArgs e)
         {
+            name = login.username;
         }
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
