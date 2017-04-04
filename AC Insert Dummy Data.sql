@@ -12,11 +12,11 @@ insert into Item(item_name, auction, quantity, start_bid, donor, sell_price, con
 		('Finger Painting', 'UNICEF', 2, 0.25, 'Bobby', 6.00, 'New', null, null),
 		('Bandages', 'Red Cross', 5, 10.00, 'Dr.Who', 40.00, '900 years old', null, null)
 
-insert into Bidder(bidder_email, bidder_password, first_name, last_name, phone, bidder_address, bidder_card)
+insert into Bidder(account_email, account_password, first_name, last_name, phone, street, city, us_state, zip, credit_card)
 	values
-		('edgeworth@aol.com', 'steelsamurai', 'Miles', 'Edgeworth', '2222222222', '1234 Blah Street', '2222-2222-2222-2222'),
-		('aceattorney@gmail.com', 'objection', 'Phoenix', 'Wright', '3333333333', '5678 Foo Avenue', '3333-3333-3333-3333'),
-		('mayafey@yahoo.com', 'mysticmaya', 'Maya', 'Fey', '4444444444', '9012 Bar Lane', '4444-4444-4444-4444')
+		('edgeworth@aol.com', 'steelsamurai', 'Miles', 'Edgeworth', '2222222222', '1234 Blah Street', 'Pittsburgh', 'Pennsylvania', 12345, '2222-2222-2222-2222'),
+		('aceattorney@gmail.com', 'objection', 'Phoenix', 'Wright', '3333333333', '5678 Foo Avenue', 'Los Angeles', 'California', 90123, '3333-3333-3333-3333'),
+		('mayafey@yahoo.com', 'mysticmaya', 'Maya', 'Fey', '4444444444', '9012 Bar Lane', 'Anchorage', 'Alaska', 25349, '4444-4444-4444-4444')
 
 insert into Bid(bidder, auction, item, bid)
 	values
