@@ -202,6 +202,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="AuctionCalendar.aspx" />
     <Content Include="auctionPage.aspx" />
     <Content Include="BidderEditProfile.aspx" />
     <Content Include="Contact.aspx" />
@@ -384,6 +385,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AuctionCalendar.aspx.cs">
+      <DependentUpon>AuctionCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionCalendar.aspx.designer.cs">
+      <DependentUpon>AuctionCalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="auctionPage.aspx.cs">
       <DependentUpon>auctionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

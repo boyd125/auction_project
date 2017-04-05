@@ -26,7 +26,6 @@
             </asp:ListBox>
             <asp:Button ID="Button1" runat="server" OnClick="buttonClick" style="margin-left: 25px" Text="Proceed" />
         </div>
-        <asp:Calendar ID="Calendar1" runat="server" style="margin-left: 42px; margin-top: 38px"></asp:Calendar>
     </form>
 </body>
 </html>
