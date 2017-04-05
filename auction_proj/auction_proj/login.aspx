@@ -25,7 +25,7 @@
                    <asp:TextBox ID="TextBox1" runat="server" Height="17px">username</asp:TextBox>
                 </p>
         <p>
-            <asp:TextBox ID="TextBox2" runat="server">password</asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password">password</asp:TextBox>
         </p>
         <p>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" BackColor="#FFFFCC" BorderStyle="Outset" Font-Bold="False" Font-Italic="False" Font-Names="FrankRuehl" Height="25px" Width="57px" />
