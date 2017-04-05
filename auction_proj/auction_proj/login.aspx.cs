@@ -24,7 +24,8 @@ namespace auction_proj
             // In a using statement, acquire the SqlConnection as a resource.
             //
 
-            using (SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\senio102\Source\Repos\auction_project\auction_proj\auction_proj\App_Data\Database1.mdf; Integrated Security = True"))
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
             {
                 //
                 // The following code uses an SqlCommand based on the SqlConnection.
