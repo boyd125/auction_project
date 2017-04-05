@@ -19,8 +19,12 @@ namespace auction_proj
         public static String zip;
         protected void Page_Load(object sender, EventArgs e)
         {
-            name = login.username;
-            nameInput.Text = name;
+            email = user.email;
+            phone = user.phone;
+            street = user.street;
+            city = user.city;
+            state = user.state;
+            zip = user.zip;      
         }
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
@@ -44,6 +48,7 @@ namespace auction_proj
 
         public void showEditProfile()
         {
+
             editLabel.Text = "  Edit Profile  ";
             nameInput.Visible = true;
             nameInput.Text = name;

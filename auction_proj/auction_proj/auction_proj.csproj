@@ -398,6 +398,7 @@
     <Compile Include="BidderEditProfile.aspx.designer.cs">
       <DependentUpon>BidderEditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

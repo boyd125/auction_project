@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <asp:Label ID="welcomeTB" Text="Welcome Bidder" Font-Bold="true" runat="server"></asp:Label>
         <br />
         <asp:Label ID="whatLikeTodoTB" Text="What would you like to do?" Font-Italic="true" runat="server"></asp:Label>
@@ -25,6 +26,12 @@
         <br />
         <br />
         <asp:Button ID="submitToDo" runat="server" Text="  Go  " BackColor="Black" ForeColor="White" OnClick="submitToDo_Click" />
+
+      
+      
+        <br />
+        <br />
+        <br />
 
       
       

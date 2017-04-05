@@ -45,9 +45,26 @@ namespace auction_proj
                         Label3.Text = ("Login Success");
                         username = TextBox1.Text;
                         Response.Redirect("~/Main.aspx");
+                        user.email = TextBox1.Text;
+                        String user1 = user.email;
+                        string oString = "Select * from Bidder where account_email= @Fname";
+                        SqlCommand oCmd = new SqlCommand(oString, con);
+                        oCmd.Parameters.AddWithValue("@Fname", user1);
+                        using (SqlDataReader oReader = oCmd.ExecuteReader())
+                        {
+                            while (oReader.Read())
+                            {
+                                user.email = oReader["account_email"].ToString();
+                                user.firstName = oReader["first_name"].ToString();
+                                user.lastName = oReader["last_name"].ToString();
+                                user.phone = oReader["phone"].ToString();
+                                user.street = oReader["street"].ToString();
+                                user.city = oReader["city"].ToString();
+                                user.state = oReader["states"].ToString();
+                                user.zip = oReader["zip"].ToString();
+                            }
+                        }
                     }
-                    else
-                        Label3.Text = ("Incorrect login");
                 }
                 catch (Exception ex)
                 {
