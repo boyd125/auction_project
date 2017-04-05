@@ -45,8 +45,7 @@ namespace auction_proj
                         Label3.Text = ("Login Success");
                         username = TextBox1.Text;
                         Response.Redirect("~/Main.aspx");
-                        user.email = TextBox1.Text;
-                        String user1 = user.email;
+                        String user1 = TextBox1.Text;
                         string oString = "Select * from Bidder where account_email= @Fname";
                         SqlCommand oCmd = new SqlCommand(oString, con);
                         oCmd.Parameters.AddWithValue("@Fname", user1);
@@ -63,6 +62,7 @@ namespace auction_proj
                                 user.state = oReader["states"].ToString();
                                 user.zip = oReader["zip"].ToString();
                             }
+                            Label3.Text = user.firstName;
                         }
                     }
                 }
