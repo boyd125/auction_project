@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         <asp:Label ID="welcomeTB" Text="Welcome Bidder" Font-Bold="true" runat="server"></asp:Label>
         <br />
         <asp:Label ID="whatLikeTodoTB" Text="What would you like to do?" Font-Italic="true" runat="server"></asp:Label>
@@ -20,8 +19,7 @@
             <asp:ListItem Text="Browse Auctions"  Enabled="true" Value="1"></asp:ListItem>
              <asp:ListItem Text="My Auctions"  Enabled="true" Value="2"></asp:ListItem>
             <asp:ListItem Text="View Calander"  Enabled="true" Value="3"></asp:ListItem>
-             <asp:ListItem Text="Current Profile"  Enabled="true" Value="4"></asp:ListItem>
-            <asp:ListItem Text="Edit Profile"  Enabled="true" Value="5"></asp:ListItem>
+             <asp:ListItem Text="My Profile"  Enabled="true" Value="4"></asp:ListItem>
         </asp:DropDownList>
         <br />
         <br />

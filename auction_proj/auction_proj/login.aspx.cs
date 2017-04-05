@@ -99,6 +99,7 @@ namespace auction_proj
                     Label3.Text = ("Unexpected error:" + ex.Message);
                 }
             }
+            Response.Redirect("~/BidderEditProfile.aspx");
         }
 
         protected void LoginView1_ViewChanged(object sender, EventArgs e)

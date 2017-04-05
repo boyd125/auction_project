@@ -25,13 +25,14 @@ namespace auction_proj
                 case 1:
                     Response.Redirect("~/SelectAuction.aspx");
                     break;
-                //view calander
+                //myauctions
                 case 2:
                     break;
-                //edit profile
+                //view calander
                 case 3:
-                    Response.Redirect("~/BidderEditProfile.aspx");
+                    Response.Redirect("~/auctionPage.aspx");
                     break;
+                //my profile
                 case 4:
                     Response.Redirect("~/BidderEditProfile.aspx");
                     break;
