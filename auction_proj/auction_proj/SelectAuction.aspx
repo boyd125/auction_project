@@ -8,11 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <br />
-        <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="20pt" Text="Label"></asp:Label>
-        <br />
-        <br />
-        <br />
+      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label1" runat="server" Text="Current Auctions"></asp:Label>
     <div>

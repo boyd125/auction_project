@@ -12,7 +12,7 @@ namespace auction_proj
         public static String index;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label2.Text = "Welcome, " + user.email;
+           
            // this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             //ListBox1.Items.Add("WWO");
             //ListBox1.Items.Add("UNICEF");
@@ -26,7 +26,8 @@ namespace auction_proj
         protected void buttonClick(object sender, EventArgs e)
         {
             index = ListBox1.Text;
-            Response.Redirect("~/auctionPage.aspx");
+            AuctionDetailPage.setAuction(index);
+            Response.Redirect("~/AuctionDetailPage.aspx");
         }
     }
 }
