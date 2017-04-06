@@ -203,6 +203,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="AuctionCalendar.aspx" />
+    <Content Include="AuctionDetailPage.aspx" />
     <Content Include="auctionPage.aspx" />
     <Content Include="BidderEditProfile.aspx" />
     <Content Include="Contact.aspx" />
@@ -391,6 +392,13 @@
     </Compile>
     <Compile Include="AuctionCalendar.aspx.designer.cs">
       <DependentUpon>AuctionCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionDetailPage.aspx.cs">
+      <DependentUpon>AuctionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionDetailPage.aspx.designer.cs">
+      <DependentUpon>AuctionDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="auctionPage.aspx.cs">
       <DependentUpon>auctionPage.aspx</DependentUpon>
