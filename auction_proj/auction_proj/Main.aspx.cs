@@ -37,6 +37,7 @@ namespace auction_proj
                     break;
                 //my profile
                 case 4:
+                    BidderEditProfile.whatChoice(0);
                     Response.Redirect("~/BidderEditProfile.aspx");
                     break;
                 

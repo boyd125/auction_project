@@ -99,6 +99,7 @@ namespace auction_proj
                     Label3.Text = ("Unexpected error:" + ex.Message);
                 }
             }
+            BidderEditProfile.whatChoice(2);
             Response.Redirect("~/BidderEditProfile.aspx");
         }
 

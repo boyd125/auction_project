@@ -18,5 +18,10 @@ namespace auction_proj
         {
             Response.Redirect("~/Main.aspx");
         }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

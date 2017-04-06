@@ -17,6 +17,8 @@ namespace auction_proj
         public static String city;
         public static String state;
         public static String zip;
+
+        public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
             email = user.email;
@@ -24,7 +26,29 @@ namespace auction_proj
             street = user.street;
             city = user.city;
             state = user.state;
-            zip = user.zip;      
+            zip = user.zip;  
+            
+            if(whatToDo == 0)
+            {
+                showCurrentProfile();
+            }
+            else if(whatToDo == 1)
+            {
+                showEditProfile();
+            }
+            else if(whatToDo == 2)
+            {
+                showRegProfile();
+            }
+            
+                
+        }
+        public static void whatChoice(int choice)
+        {
+            //if current 0
+            //if edit 1
+            //if register 2
+            BidderEditProfile.whatToDo = choice;
         }
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
@@ -41,8 +65,11 @@ namespace auction_proj
 
             if (editProfSubmit.Text.ToString().Equals("Submit"))
                 showCurrentProfile();
-            else
+            else if(editProfSubmit.Text.ToString().Equals("Edit"))
                 showEditProfile();
+            else if (editProfSubmit.Text.ToString().Equals("Register"))
+                Response.Redirect("~/login.aspx");
+
 
         }
 
@@ -99,6 +126,46 @@ namespace auction_proj
             zipLabel.Text = zipLabel.Text.ToString() + zip;
 
             editProfSubmit.Text = "Edit";
+        }
+
+        public void showRegProfile()
+        {
+            editLabel.Text = "  New Profile  ";
+
+            userLabel.Visible = true;
+            userTB.Visible = true;
+            passLabel.Visible = true;
+            passTB.Visible = true;
+            passConfirmLabel.Visible = true;
+            confirmTB.Visible = true;
+
+            nameInput.Visible = true;
+            nameInput.Text = name;
+            nameInputLabel.Text = "Name:";
+            emailInput.Visible = true;
+            emailInput.Text = email;
+            emailILabel.Text = "Email:";
+            phoneInput.Visible = true;
+            phoneInput.Text = phone;
+            phoneLabel.Text = "Phone #:";
+            addressInput.Visible = true;
+            addressInput.Text = address;
+            addressLabel.Text = "Address:";
+            streetInput.Visible = true;
+            streetInput.Text = street;
+            streetAdLabel.Text = "Street:";
+            cityInput.Visible = true;
+            cityInput.Text = city;
+            cityLabel.Text = "City:";
+            stateInput.Visible = true;
+            stateInput.Text = state;
+            stateLabel.Text = "State:";
+            zipInput.Visible = true;
+            zipInput.Text = zip;
+            zipLabel.Text = "Zip:";
+
+            editProfSubmit.Text = "Register";
+
         }
 
         protected void backToHome_Click(object sender, EventArgs e)

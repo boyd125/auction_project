@@ -38,6 +38,10 @@
        
         <br />
         <br />
+      
+           
+           
+        </table>
         <table align="left" class="auto-style1">
             <tr>
                 <td class="auto-style3">
@@ -126,6 +130,45 @@
                 </td>
             </tr>
             <tr>
+                 <table align="left" class="auto-style1">
+            <tr>
+                <td class="auto-style3">
+        <asp:Label ID="userLabel" runat="server" Font-Bold="true" Text="UserName: "  Visible="false"></asp:Label>
+                </td>
+                <td class="auto-style5">
+        <asp:TextBox ID="userTB" runat="server" Visible="false" ></asp:TextBox>
+                </td>
+                <td class="auto-style4">
+                </td>
+            </tr>
+            <br />
+            <tr>
+                <td class="auto-style3">
+          <asp:Label ID="passLabel" runat="server" Font-Bold="true" Text="Password: " Visible="false" ></asp:Label>
+
+                </td>
+                <td class="auto-style5">
+        <asp:TextBox ID="passTB" runat="server" Visible="false" ></asp:TextBox>
+                </td>
+                <td class="auto-style4">
+                </td>
+            </tr>
+            <br />
+             <tr>
+                <td class="auto-style3">
+          <asp:Label ID="passConfirmLabel" runat="server" Font-Bold="true" Text="Confirm Password: " Visible="false"></asp:Label>
+
+                </td>
+                <td class="auto-style5">
+        <asp:TextBox ID="confirmTB" runat="server" Visible="false" ></asp:TextBox>
+                </td>
+                <td class="auto-style4">
+                </td>
+            </tr>
+
+
+
+            <br />
                 <td>
         <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click"  />
                   
@@ -133,6 +176,7 @@
                 </td>
             </tr>
         </table>
+        <br />
 
        
     </div>
