@@ -26,20 +26,22 @@ namespace auction_proj
             street = user.street;
             city = user.city;
             state = user.state;
-            zip = user.zip;  
-            
-            if(whatToDo == 0)
+            zip = user.zip;
+
+            if (whatToDo == 0)
             {
                 showCurrentProfile();
             }
-            else if(whatToDo == 1)
+            else if (whatToDo == 1)
             {
                 showEditProfile();
             }
-            else if(whatToDo == 2)
+            else if (whatToDo == 2)
             {
                 showRegProfile();
             }
+            else
+                showEditProfile();
             
                 
         }
@@ -69,7 +71,6 @@ namespace auction_proj
                 showEditProfile();
             else if (editProfSubmit.Text.ToString().Equals("Register"))
                 Response.Redirect("~/login.aspx");
-
 
         }
 
@@ -165,6 +166,7 @@ namespace auction_proj
             zipLabel.Text = "Zip:";
 
             editProfSubmit.Text = "Register";
+            backToHome.Visible = false;
 
         }
 
