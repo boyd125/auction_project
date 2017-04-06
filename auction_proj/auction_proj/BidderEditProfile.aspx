@@ -139,7 +139,8 @@
         <div>
             <table align="right" class="auto-style1">
       
-           <asp:Button ID="backToHome" runat="server" Text="Back To Home" Width="682px" OnClick="backToHome_Click" />
+           <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
+               
       
         </table>
         </div>

@@ -20,7 +20,11 @@
                 <asp:ListItem>UNICEF</asp:ListItem>
                 <asp:ListItem>Red Cross</asp:ListItem>
             </asp:ListBox>
+            <br />
             <asp:Button ID="Button1" runat="server" OnClick="buttonClick" style="margin-left: 25px" Text="Proceed" />
+            <br />
+            <br />
+             <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
         </div>
     </form>
 </body>
