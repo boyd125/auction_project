@@ -23,14 +23,17 @@ namespace auction_proj
                     break;
                 //browse
                 case 1:
+                    SelectAuction.setMyOrBrowseAuctions(0);
                     Response.Redirect("~/SelectAuction.aspx");
                     break;
                 //myauctions
                 case 2:
+                    SelectAuction.setMyOrBrowseAuctions(1);
+                    Response.Redirect("~/SelectAuction.aspx");
                     break;
                 //view calander
                 case 3:
-                    Response.Redirect("~/auctionPage.aspx");
+                    Response.Redirect("~/AuctionCalendar.aspx");                    
                     break;
                 //my profile
                 case 4:

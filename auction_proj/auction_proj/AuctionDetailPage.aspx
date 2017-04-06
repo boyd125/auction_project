@@ -25,8 +25,11 @@
         <br />
         <asp:Label ID="auctNumBidders" runat="server" Text="Number Of Bidders: "></asp:Label>
         <br />
-
+        <br />
         <asp:Button ID="backButt" runat="server" Text="Back To Browse" OnClick="backButt_Click" />
+        <br />
+        <br />
+         <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
         
 
     

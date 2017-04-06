@@ -13,6 +13,11 @@ namespace auction_proj
         private static String currentAuction;
         private String date, time, org, numItems, location, registeredBidders;
 
+        protected void backToHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Main.aspx");
+        }
+
         protected void backButt_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/SelectAuction.aspx");
