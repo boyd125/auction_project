@@ -9,6 +9,12 @@
         .auto-style2 {
             width: 134px;
         }
+        .auto-style4 {
+            width: 241px;
+        }
+        .auto-style5 {
+            width: 636px;
+        }
         </style>
 </head>
 <body>
@@ -21,12 +27,25 @@
             <div style="text-align: center;">
                    <asp:Label ID="Label3" runat="server" Text="Please Login"></asp:Label>
                    </div>
-        <p>
-                   <asp:TextBox ID="TextBox1" runat="server" Height="17px">username</asp:TextBox>
-                </p>
-        <p>
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password">password</asp:TextBox>
-        </p>
+
+            <table class="auto-style4" table align="center">
+                <tr>
+                    <td class="auto-style5">
+                        <asp:Label ID="username" runat="server" Text="Username"></asp:Label>
+                    </td>
+                    <td class="auto-style2">
+                   <asp:TextBox ID="TextBox1" runat="server" Width="128px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
+                    </td>
+                    <td class="auto-style2">
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="128px">password</asp:TextBox>
+                    </td>
+                </tr>
+            </table>
         <p>
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" BackColor="#FFFFCC" BorderStyle="Outset" Font-Bold="False" Font-Italic="False" Font-Names="FrankRuehl" Height="25px" Width="57px" />
                 <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Register" BackColor="#FFFFCC" BorderStyle="Outset" Font-Bold="False" Font-Italic="False" Font-Names="FrankRuehl" Height="25px" />

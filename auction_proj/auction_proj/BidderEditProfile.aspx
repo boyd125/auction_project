@@ -34,7 +34,7 @@
     <div style="height: 369px; width: 681px">
      
         <br />
-        <asp:Label ID="editLabel" runat="server" Font-Underline="true" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="true" ></asp:Label>
+        <asp:Label ID="editLabel" runat="server" Font-Underline="True" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="True" ForeColor="#66CCFF" ></asp:Label>
        
         <br />
         <br />
@@ -58,7 +58,7 @@
         <asp:Label ID="phoneLabel" runat="server" Font-Bold="true" Text="Phone Number: " ></asp:Label>
                 </td>
                 <td class="auto-style6">
-        <asp:TextBox ID="phoneInput" runat="server" >(XXX) XXX-XXXX</asp:TextBox>
+        <asp:TextBox ID="phoneInput" runat="server" >(000) 000-0000</asp:TextBox>
                 </td>
                 <td class="auto-style2">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="phoneInput" ErrorMessage="Not a valid Phone#" Font-Bold="True" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
@@ -170,7 +170,7 @@
 
             <br />
                 <td>
-        <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click"  />
+        <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
                   
 
                 </td>
