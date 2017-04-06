@@ -31,18 +31,18 @@
             <table class="auto-style4" table align="center">
                 <tr>
                     <td class="auto-style5">
-                        <asp:Label ID="username" runat="server" Text="User Name"></asp:Label>
+                        <asp:Label ID="username" runat="server" Text="Username"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                   <asp:TextBox ID="TextBox1" runat="server" Height="17px"></asp:TextBox>
+                   <asp:TextBox ID="TextBox1" runat="server" Width="128px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                        <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
                     </td>
-                    <td class="auto-style4">
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password">password</asp:TextBox>
+                    <td class="auto-style2">
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="128px">password</asp:TextBox>
                     </td>
                 </tr>
             </table>
