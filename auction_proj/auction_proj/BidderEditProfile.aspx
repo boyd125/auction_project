@@ -34,7 +34,7 @@
     <div style="height: 369px; width: 681px">
      
         <br />
-        <asp:Label ID="editLabel" runat="server" Font-Underline="true" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="true" ></asp:Label>
+        <asp:Label ID="editLabel" runat="server" Font-Underline="True" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="True" ForeColor="#66CCFF" ></asp:Label>
        
         <br />
         <br />
@@ -127,7 +127,7 @@
             </tr>
             <tr>
                 <td>
-        <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click"  />
+        <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
                   
 
                 </td>
