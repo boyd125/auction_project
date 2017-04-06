@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,12 +23,13 @@ namespace auction_proj
         public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            email = user.email;
-            phone = user.phone;
-            street = user.street;
-            city = user.city;
-            state = user.state;
-            zip = user.zip;
+            name = (string)Session["firstname"];
+            email = (string)Session["email"];
+            phone = (string)Session["phone"];
+            street = (string)Session["street"];
+            city = (string)Session["city"];
+            state = (string)Session["state"];
+            zip = (string)Session["zip"];
 
             if (whatToDo == 0)
             {
@@ -55,23 +58,12 @@ namespace auction_proj
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
         {
-            //do null check
-            name = nameInput.Text.ToString();
-            email = emailInput.Text.ToString();
-            phone = phoneInput.Text.ToString();
-            address = addressInput.Text.ToString();
-            street = streetInput.Text.ToString();
-            city = cityInput.Text.ToString();
-            state = stateInput.Text.ToString();
-            zip = zipInput.Text.ToString();
-
             if (editProfSubmit.Text.ToString().Equals("Submit"))
                 showCurrentProfile();
-            else if(editProfSubmit.Text.ToString().Equals("Edit"))
+            else if (editProfSubmit.Text.ToString().Equals("Edit"))
                 showEditProfile();
             else if (editProfSubmit.Text.ToString().Equals("Register"))
                 Response.Redirect("~/login.aspx");
-
         }
 
         public void showEditProfile()

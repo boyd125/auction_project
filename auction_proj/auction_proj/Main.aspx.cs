@@ -11,6 +11,7 @@ namespace auction_proj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            welcomeTB.Text = "Welcome, " + (string)Session["email"];
         }
 
         protected void submitToDo_Click(object sender, EventArgs e)

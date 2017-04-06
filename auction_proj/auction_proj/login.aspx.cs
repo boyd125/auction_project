@@ -45,7 +45,6 @@ namespace auction_proj
                     {
                         Label3.Text = ("Login Success");
                         username = TextBox1.Text;
-                        Response.Redirect("~/Main.aspx");
                         String user1 = TextBox1.Text;
                         string oString = "Select * from Bidder where account_email= @Fname";
                         SqlCommand oCmd = new SqlCommand(oString, con);
@@ -62,9 +61,17 @@ namespace auction_proj
                                 user.city = oReader["city"].ToString();
                                 user.state = oReader["states"].ToString();
                                 user.zip = oReader["zip"].ToString();
+                                Session["email"] = user.email;
+                                Session["firstname"] = user.firstName;
+                                Session["lastname"] = user.lastName;
+                                Session["phone"] = user.phone;
+                                Session["street"] = user.street;
+                                Session["city"] = user.city;
+                                Session["state"] = user.state;
+                                Session["zip"] = user.zip;
                             }
-                            Label3.Text = user.firstName;
                         }
+                        Response.Redirect("~/Main.aspx");
                     }
                 }
                 catch (Exception ex)

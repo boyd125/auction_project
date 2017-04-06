@@ -15,6 +15,11 @@ namespace auction_proj
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        public string str
+        {
+            set { Session["str"] = value; }
+            get { return (string)Session["str"].ToString(); }
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
