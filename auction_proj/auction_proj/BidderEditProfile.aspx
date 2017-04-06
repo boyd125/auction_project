@@ -54,7 +54,7 @@
         <asp:Label ID="phoneLabel" runat="server" Font-Bold="true" Text="Phone Number: " ></asp:Label>
                 </td>
                 <td class="auto-style6">
-        <asp:TextBox ID="phoneInput" runat="server" >(XXX) XXX-XXXX</asp:TextBox>
+        <asp:TextBox ID="phoneInput" runat="server" >(000) 000-0000</asp:TextBox>
                 </td>
                 <td class="auto-style2">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="phoneInput" ErrorMessage="Not a valid Phone#" Font-Bold="True" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
