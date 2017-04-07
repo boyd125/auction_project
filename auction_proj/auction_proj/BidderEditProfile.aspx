@@ -161,8 +161,7 @@
         <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="confirmTB" ControlToValidate="passTB" ErrorMessage="Passwords must match" Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
-                </td>
+                    &nbsp;</td>
             </tr>
             <br />
              <tr>
@@ -174,6 +173,7 @@
         <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="passTB" ControlToValidate="confirmTB" ErrorMessage="Passwords must match" Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
                 </td>
             </tr>
 
