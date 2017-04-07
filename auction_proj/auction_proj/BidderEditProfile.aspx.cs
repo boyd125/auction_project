@@ -79,8 +79,6 @@ namespace auction_proj
             phoneInput.Visible = true;
             phoneInput.Text = phone;
             phoneLabel.Text ="Phone #:";
-            addressInput.Visible = true;
-            addressInput.Text = address;
             addressLabel.Text = "Address:";
             streetInput.Visible = true;
             streetInput.Text = street;
@@ -107,7 +105,6 @@ namespace auction_proj
             emailILabel.Text = emailILabel.Text.ToString() + email;
             phoneInput.Visible = false;
             phoneLabel.Text = phoneLabel.Text.ToString() + phone;
-            addressInput.Visible = false;
             addressLabel.Text = addressLabel.Text.ToString() + address;
             streetInput.Visible = false;
             streetAdLabel.Text = streetAdLabel.Text.ToString() + street;
@@ -141,8 +138,6 @@ namespace auction_proj
             phoneInput.Visible = true;
             phoneInput.Text = phone;
             phoneLabel.Text = "Phone #:";
-            addressInput.Visible = true;
-            addressInput.Text = address;
             addressLabel.Text = "Address:";
             streetInput.Visible = true;
             streetInput.Text = street;

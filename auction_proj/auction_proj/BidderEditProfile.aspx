@@ -91,11 +91,10 @@
             </tr>
             <tr>
                 <td class="auto-style11">
-        <asp:Label ID="addressLabel" runat="server" Font-Bold="true" Text="Address: " ></asp:Label>
+        <asp:Label ID="addressLabel" runat="server" Font-Bold="True" Text="Address" Font-Underline="True" ></asp:Label>
                 </td>
                 <td class="auto-style6">
-        <asp:TextBox ID="addressInput" runat="server" Width="154px" ></asp:TextBox>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style2">
                     &nbsp;</td>
             </tr>

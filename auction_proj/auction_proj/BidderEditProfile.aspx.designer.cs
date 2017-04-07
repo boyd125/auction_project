@@ -112,15 +112,6 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label addressLabel;
         
         /// <summary>
-        /// addressInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addressInput;
-        
-        /// <summary>
         /// streetAdLabel control.
         /// </summary>
         /// <remarks>
