@@ -10,10 +10,13 @@
             width: 134px;
         }
         .auto-style4 {
-            width: 241px;
+            width: 399px;
         }
         .auto-style5 {
-            width: 636px;
+            width: 547px;
+        }
+        .auto-style6 {
+            width: 310px;
         }
         </style>
 </head>
@@ -30,15 +33,19 @@
 
             <table class="auto-style4" table align="center">
                 <tr>
-                    <td class="auto-style5">
+                    <td class="auto-style3">
                         <asp:Label ID="username" runat="server" Text="Username"></asp:Label>
                     </td>
                     <td class="auto-style2">
                    <asp:TextBox ID="TextBox1" runat="server" Width="128px"></asp:TextBox>
                     </td>
+                    <td class="auto-style4">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email adress" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    </td>
+
                 </tr>
                 <tr>
-                    <td class="auto-style2">
+                    <td class="auto-style5">
                         <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td class="auto-style2">
