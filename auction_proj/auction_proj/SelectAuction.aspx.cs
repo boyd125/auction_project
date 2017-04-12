@@ -14,7 +14,11 @@ namespace auction_proj
         private String nameOfPerson;
         protected void Page_Load(object sender, EventArgs e)
         {
-           if(myOrBrowse == 0)
+            if ((string)Session["loggedIn"] == "false")
+            {
+                Response.Redirect("~/login.aspx");
+            }
+            if (myOrBrowse == 0)
             {
                 Label1.Text = "Current Auctions";
             }

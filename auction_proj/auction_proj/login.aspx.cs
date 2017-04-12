@@ -16,7 +16,7 @@ namespace auction_proj
         public static String username;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["loggedIn"] = "false";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -69,6 +69,7 @@ namespace auction_proj
                                 Session["city"] = user.city;
                                 Session["state"] = user.state;
                                 Session["zip"] = user.zip;
+                                Session["loggedIn"] = "true";
                             }
                         }
                         Response.Redirect("~/Main.aspx");

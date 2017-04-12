@@ -25,6 +25,10 @@ namespace auction_proj
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["loggedIn"] == "false")
+            {
+                Response.Redirect("~/login.aspx");
+            }
             auctName.Text = currentAuction + " Details";
 
             //get the auction information from database

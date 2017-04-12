@@ -414,6 +414,7 @@
     <Compile Include="BidderEditProfile.aspx.designer.cs">
       <DependentUpon>BidderEditProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="dbClass.cs" />
     <Compile Include="user.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

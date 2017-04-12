@@ -11,7 +11,10 @@ namespace auction_proj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ((string)Session["loggedIn"] == "false")
+            {
+                Response.Redirect("~/login.aspx");
+            }
         }
 
         protected void backToHome_Click(object sender, EventArgs e)

@@ -23,6 +23,10 @@ namespace auction_proj
         public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["loggedIn"] == "false")
+            {
+                Response.Redirect("~/login.aspx");
+            }
             name = (string)Session["firstname"];
             email = (string)Session["email"];
             phone = (string)Session["phone"];

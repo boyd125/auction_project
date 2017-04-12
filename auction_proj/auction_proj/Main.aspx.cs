@@ -11,6 +11,11 @@ namespace auction_proj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string temp = (string)Session["loggedIn"];
+            if (temp == "false")
+            {
+                Response.Redirect("~/login.aspx");
+            }
             welcomeTB.Text = "Welcome, " + (string)Session["email"];
         }
 
