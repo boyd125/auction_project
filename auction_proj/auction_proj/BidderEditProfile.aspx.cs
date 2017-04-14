@@ -23,10 +23,14 @@ namespace auction_proj
         public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((string)Session["loggedIn"] == "false")
+            if(whatToDo != 2)
             {
-                Response.Redirect("~/login.aspx");
+                if ((string)Session["loggedIn"] == "false")
+                {
+                    Response.Redirect("~/login.aspx");
+                }
             }
+            
             name = (string)Session["firstname"];
             email = (string)Session["email"];
             phone = (string)Session["phone"];
@@ -47,9 +51,8 @@ namespace auction_proj
             {
                 showRegProfile();
             }
-            else
-                showEditProfile();
-            
+           
+                
                 
         }
         public static void whatChoice(int choice)
@@ -62,12 +65,26 @@ namespace auction_proj
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
         {
+            //just edited profile
             if (editProfSubmit.Text.ToString().Equals("Submit"))
-                showCurrentProfile();
+            {
+                //TODO record the data
+                whatToDo = 0;
+                Response.Redirect("~/BidderEditProfile.aspx");
+            }
+            //want to edit profile 
             else if (editProfSubmit.Text.ToString().Equals("Edit"))
-                showEditProfile();
+            {
+                whatToDo = 1;
+                Response.Redirect("~/BidderEditProfile.aspx");
+            }
+            //just entered register info  
             else if (editProfSubmit.Text.ToString().Equals("Register"))
+            {
+                //TODO record data
                 Response.Redirect("~/login.aspx");
+            }
+                
         }
 
         public void showEditProfile()
@@ -77,9 +94,9 @@ namespace auction_proj
             nameInput.Visible = true;
             nameInput.Text = name;
             nameInputLabel.Text = "Name:";
-            emailInput.Visible = true;
-            emailInput.Text = email;
-            emailILabel.Text ="Email:";
+            emailInput.Visible = false;
+            //emailInput.Text = email;
+            emailILabel.Text ="Email:" + email;
             phoneInput.Visible = true;
             phoneInput.Text = phone;
             phoneLabel.Text ="Phone #:";
@@ -102,21 +119,27 @@ namespace auction_proj
         public void showCurrentProfile()
         {
             editLabel.Text = "  Current Profile  ";
-
+            name = nameInput.Text.ToString();
             nameInput.Visible = false;
             nameInputLabel.Text = nameInputLabel.Text.ToString() + name;
             emailInput.Visible = false;
+            //email = emailInput.Text.ToString();
             emailILabel.Text = emailILabel.Text.ToString() + email;
             phoneInput.Visible = false;
+            phone = phoneInput.Text.ToString();
             phoneLabel.Text = phoneLabel.Text.ToString() + phone;
             addressLabel.Text = addressLabel.Text.ToString() + address;
             streetInput.Visible = false;
+            street = streetInput.Text.ToString();
             streetAdLabel.Text = streetAdLabel.Text.ToString() + street;
             cityInput.Visible = false;
+            city = cityInput.Text.ToString();
             cityLabel.Text = cityLabel.Text.ToString() + city;
             stateInput.Visible = false;
+            state = stateInput.Text.ToString();
             stateLabel.Text = stateLabel.Text.ToString() + state;
             zipInput.Visible = false;
+            zip = zipInput.Text.ToString();
             zipLabel.Text = zipLabel.Text.ToString() + zip;
 
             editProfSubmit.Text = "Edit";
