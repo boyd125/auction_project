@@ -31,12 +31,12 @@ namespace auction_proj
                 }
             }
             
-            name = (string)Session["firstname"];
-            email = (string)Session["email"];
+            name = (string)Session["full_name"];
+            email = (string)Session["account_email"];
             phone = (string)Session["phone"];
             street = (string)Session["street"];
             city = (string)Session["city"];
-            state = (string)Session["state"];
+            state = (string)Session["us_state"];
             zip = (string)Session["zip"];
 
             if (whatToDo == 0)
@@ -119,27 +119,27 @@ namespace auction_proj
         public void showCurrentProfile()
         {
             editLabel.Text = "  Current Profile  ";
-            name = nameInput.Text.ToString();
+            //name = nameInput.Text.ToString();
             nameInput.Visible = false;
             nameInputLabel.Text = nameInputLabel.Text.ToString() + name;
             emailInput.Visible = false;
             //email = emailInput.Text.ToString();
             emailILabel.Text = emailILabel.Text.ToString() + email;
             phoneInput.Visible = false;
-            phone = phoneInput.Text.ToString();
+            //phone = phoneInput.Text.ToString();
             phoneLabel.Text = phoneLabel.Text.ToString() + phone;
             addressLabel.Text = addressLabel.Text.ToString() + address;
             streetInput.Visible = false;
-            street = streetInput.Text.ToString();
+            //street = streetInput.Text.ToString();
             streetAdLabel.Text = streetAdLabel.Text.ToString() + street;
             cityInput.Visible = false;
-            city = cityInput.Text.ToString();
+            //city = cityInput.Text.ToString();
             cityLabel.Text = cityLabel.Text.ToString() + city;
             stateInput.Visible = false;
-            state = stateInput.Text.ToString();
+            //state = stateInput.Text.ToString();
             stateLabel.Text = stateLabel.Text.ToString() + state;
             zipInput.Visible = false;
-            zip = zipInput.Text.ToString();
+            //zip = zipInput.Text.ToString();
             zipLabel.Text = zipLabel.Text.ToString() + zip;
 
             editProfSubmit.Text = "Edit";

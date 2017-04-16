@@ -35,7 +35,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"SELECT Count(*) FROM Bidder 
+                    SqlCommand cmd = new SqlCommand(@"SELECT Count(*) FROM Bidder_All 
                                         WHERE account_email=@uname and 
                                         account_password=@pass", con);
                     cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
@@ -46,7 +46,7 @@ namespace auction_proj
                         Label3.Text = ("Login Success");
                         username = TextBox1.Text;
                         String user1 = TextBox1.Text;
-                        string oString = "Select * from Bidder where account_email= @Fname";
+                        string oString = "Select * from Bidder_All where account_email= @Fname";
                         SqlCommand oCmd = new SqlCommand(oString, con);
                         oCmd.Parameters.AddWithValue("@Fname", user1);
                         using (SqlDataReader oReader = oCmd.ExecuteReader())
@@ -54,20 +54,18 @@ namespace auction_proj
                             while (oReader.Read())
                             {
                                 user.email = oReader["account_email"].ToString();
-                                user.firstName = oReader["first_name"].ToString();
-                                user.lastName = oReader["last_name"].ToString();
+                                user.firstName = oReader["full_name"].ToString();
                                 user.phone = oReader["phone"].ToString();
                                 user.street = oReader["street"].ToString();
                                 user.city = oReader["city"].ToString();
-                                user.state = oReader["states"].ToString();
+                                user.state = oReader["us_state"].ToString();
                                 user.zip = oReader["zip"].ToString();
-                                Session["email"] = user.email;
-                                Session["firstname"] = user.firstName;
-                                Session["lastname"] = user.lastName;
+                                Session["account_email"] = user.email;
+                                Session["full_name"] = user.firstName;
                                 Session["phone"] = user.phone;
                                 Session["street"] = user.street;
                                 Session["city"] = user.city;
-                                Session["state"] = user.state;
+                                Session["us_state"] = user.state;
                                 Session["zip"] = user.zip;
                                 Session["loggedIn"] = "true";
                             }
@@ -97,7 +95,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder (account_email, account_password) VALUES (@uname, @pass)", con);
+                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder_All (account_email, account_password) VALUES (@uname, @pass)", con);
                     cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
                     cmd.Parameters.AddWithValue("@pass", TextBox2.Text);
                     cmd.ExecuteNonQuery();
