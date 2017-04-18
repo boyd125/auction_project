@@ -16,7 +16,7 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
-            welcomeTB.Text = "Welcome, " + (string)Session["email"];
+            welcomeTB.Text = "Welcome, " + (string)Session["account_email"];
         }
 
         protected void submitToDo_Click(object sender, EventArgs e)

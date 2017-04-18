@@ -11,15 +11,6 @@ namespace auction_proj
 {
     public partial class BidderEditProfile : System.Web.UI.Page
     {
-        public static String name;
-        public static String email;
-        public static String phone;
-        public static String address;
-        public static String street;
-        public static String city;
-        public static String state;
-        public static String zip;
-
         public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,14 +21,6 @@ namespace auction_proj
                     Response.Redirect("~/login.aspx");
                 }
             }
-            
-            name = (string)Session["full_name"];
-            email = (string)Session["account_email"];
-            phone = (string)Session["phone"];
-            street = (string)Session["street"];
-            city = (string)Session["city"];
-            state = (string)Session["us_state"];
-            zip = (string)Session["zip"];
 
             if (whatToDo == 0)
             {
@@ -69,12 +52,23 @@ namespace auction_proj
             if (editProfSubmit.Text.ToString().Equals("Submit"))
             {
                 //TODO record the data
+                Session["full_name"] = nameInput.Text;
+                Session["phone"] = phoneInput.Text;
+                Session["street"] = streetInput.Text;
+                Session["us_state"] = stateInput.Text;
+                Session["zip"] = zipInput.Text;
+                editLabel.Text = (string)Session["full_name"];
                 whatToDo = 0;
                 Response.Redirect("~/BidderEditProfile.aspx");
             }
             //want to edit profile 
             else if (editProfSubmit.Text.ToString().Equals("Edit"))
             {
+                nameInput.Text = (string)Session["full_name"];
+                phoneInput.Text = (string)Session["phone"];
+                streetInput.Text = (string)Session["street"];
+                stateInput.Text = (string)Session["us_state"];
+                zipInput.Text = (string)Session["zip"];
                 whatToDo = 1;
                 Response.Redirect("~/BidderEditProfile.aspx");
             }
@@ -92,26 +86,26 @@ namespace auction_proj
 
             editLabel.Text = "  Edit Profile  ";
             nameInput.Visible = true;
-            nameInput.Text = name;
+            //nameInput.Text = name;
             nameInputLabel.Text = "Name:";
             emailInput.Visible = false;
             //emailInput.Text = email;
-            emailILabel.Text ="Email:" + email;
+            emailILabel.Text ="Email:" + (string)Session["account_email"];
             phoneInput.Visible = true;
-            phoneInput.Text = phone;
+            //phoneInput.Text = phone;
             phoneLabel.Text ="Phone #:";
             addressLabel.Text = "Address:";
             streetInput.Visible = true;
-            streetInput.Text = street;
+            //streetInput.Text = street;
             streetAdLabel.Text = "Street:";
             cityInput.Visible = true;
-            cityInput.Text = city;
+            //cityInput.Text = city;
             cityLabel.Text = "City:";
             stateInput.Visible = true;
-            stateInput.Text = state;
+            //stateInput.Text = state;
             stateLabel.Text = "State:";
             zipInput.Visible = true;
-            zipInput.Text = zip;
+            //zipInput.Text = zip;
             zipLabel.Text = "Zip:";
 
             editProfSubmit.Text = "Submit";
@@ -121,26 +115,24 @@ namespace auction_proj
             editLabel.Text = "  Current Profile  ";
             //name = nameInput.Text.ToString();
             nameInput.Visible = false;
-            nameInputLabel.Text = nameInputLabel.Text.ToString() + name;
+            nameInputLabel.Text = nameInputLabel.Text.ToString() + (string)Session["full_name"];
             emailInput.Visible = false;
             //email = emailInput.Text.ToString();
-            emailILabel.Text = emailILabel.Text.ToString() + email;
+            emailILabel.Text = emailILabel.Text.ToString() + (string)Session["account_email"];
             phoneInput.Visible = false;
             //phone = phoneInput.Text.ToString();
-            phoneLabel.Text = phoneLabel.Text.ToString() + phone;
-            addressLabel.Text = addressLabel.Text.ToString() + address;
+            phoneLabel.Text = phoneLabel.Text.ToString() + (string)Session["phone"];
+            addressLabel.Text = addressLabel.Text.ToString() + (string)Session["street"];
             streetInput.Visible = false;
             //street = streetInput.Text.ToString();
-            streetAdLabel.Text = streetAdLabel.Text.ToString() + street;
             cityInput.Visible = false;
             //city = cityInput.Text.ToString();
-            cityLabel.Text = cityLabel.Text.ToString() + city;
             stateInput.Visible = false;
             //state = stateInput.Text.ToString();
-            stateLabel.Text = stateLabel.Text.ToString() + state;
+            stateLabel.Text = stateLabel.Text.ToString() + (string)Session["us_state"];
             zipInput.Visible = false;
             //zip = zipInput.Text.ToString();
-            zipLabel.Text = zipLabel.Text.ToString() + zip;
+            zipLabel.Text = zipLabel.Text.ToString() + (string)Session["zip"];
 
             editProfSubmit.Text = "Edit";
         }
@@ -157,26 +149,25 @@ namespace auction_proj
             confirmTB.Visible = true;
 
             nameInput.Visible = true;
-            nameInput.Text = name;
+            //nameInput.Text = name;
             nameInputLabel.Text = "Name:";
             emailInput.Visible = true;
-            emailInput.Text = email;
+            emailInput.Text = (string)Session["account_email"];
             emailILabel.Text = "Email:";
             phoneInput.Visible = true;
-            phoneInput.Text = phone;
+            phoneInput.Text = (string)Session["phone"];
             phoneLabel.Text = "Phone #:";
             addressLabel.Text = "Address:";
             streetInput.Visible = true;
-            streetInput.Text = street;
+            streetInput.Text = (string)Session["street"];
             streetAdLabel.Text = "Street:";
             cityInput.Visible = true;
-            cityInput.Text = city;
             cityLabel.Text = "City:";
             stateInput.Visible = true;
-            stateInput.Text = state;
+            stateInput.Text = (string)Session["us_state"];
             stateLabel.Text = "State:";
             zipInput.Visible = true;
-            zipInput.Text = zip;
+            zipInput.Text = (string)Session["zip"];
             zipLabel.Text = "Zip:";
 
             editProfSubmit.Text = "Register";
