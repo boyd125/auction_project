@@ -91,7 +91,7 @@
             </tr>
             <tr>
                 <td class="auto-style11">
-        <asp:Label ID="addressLabel" runat="server" Font-Bold="True" Text="Address" Font-Underline="True" ></asp:Label>
+        <asp:Label ID="addressLabel" runat="server" Font-Bold="True" Text="Address" ></asp:Label>
                 </td>
                 <td class="auto-style6">
                     &nbsp;</td>
