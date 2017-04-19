@@ -41,9 +41,8 @@ namespace auction_proj
             {
                 showRegProfile();
             }
-           
-                
-                
+
+
         }
         public static void whatChoice(int choice)
         {
@@ -57,15 +56,39 @@ namespace auction_proj
         {
             if (editProfSubmit.Text.ToString().Equals("Submit"))
             {                
-                Session["full_name"] = nameInput.Text;
-                Session["phone"] = phoneInput.Text;
-                Session["street"] = streetInput.Text;
-                Session["us_state"] = stateInput.Text;
-                Session["zip"] = zipInput.Text;
-                dbClass.update();
+                //dbClass.update();
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
+                        {
+                            Session["full_name"] = nameInput.Text;
+                            Session["phone"] = phoneInput.Text;
+                            Session["street"] = streetInput.Text;
+                            Session["city"] = cityInput.Text;
+                            Session["us_state"] = stateInput.Text;
+                            Session["zip"] = zipInput.Text;
+                            cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                            cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                            cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
+                            cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
+                            cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
+                            cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
+                            cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                        conn.Close();
+                        whatToDo = 0;
+                        Response.Redirect("~/BidderEditProfile.aspx");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    editLabel.Text = "Not all valid values. Please try again";
+                }
                 //TODO record the data
-                whatToDo = 0;
-                Response.Redirect("~/BidderEditProfile.aspx");
             }
             //want to edit profile 
             else if (editProfSubmit.Text.ToString().Equals("Edit"))
@@ -76,10 +99,32 @@ namespace auction_proj
             //just entered register info  
             else if (editProfSubmit.Text.ToString().Equals("Register"))
             {
+                string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    try
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder_All (account_email, account_password, full_name, phone, street, city, us_state, zip) VALUES (@email, @pass, @fname, @phone, @street, @city, @us_state, @zip)", con);
+                        cmd.Parameters.AddWithValue("@email", emailInput.Text);
+                        cmd.Parameters.AddWithValue("@pass", encrypt.encryptPass(passTB.Text));
+                        cmd.Parameters.AddWithValue("@fname", nameInput.Text);
+                        cmd.Parameters.AddWithValue("@phone", phoneInput.Text);
+                        cmd.Parameters.AddWithValue("@street", streetInput.Text);
+                        cmd.Parameters.AddWithValue("@city", cityInput.Text);
+                        cmd.Parameters.AddWithValue("@us_state", stateInput.Text);
+                        cmd.Parameters.AddWithValue("@zip", zipInput.Text);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        Response.Redirect("~/login.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        editLabel.Text = ("Unexpected error:" + ex.Message);
+                    }
+                }
                 //TODO record data
-                Response.Redirect("~/login.aspx");
-            }
-                
+            }               
         }
 
         public void showEditProfile()

@@ -18,7 +18,6 @@ namespace auction_proj
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
                     {
-
                         cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
                         cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
                         cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
@@ -28,6 +27,7 @@ namespace auction_proj
                         cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
                 }
             }
             catch (SqlException ex)

@@ -39,7 +39,7 @@ namespace auction_proj
                                         WHERE account_email=@uname and 
                                         account_password=@pass", con);
                     cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
-                    cmd.Parameters.AddWithValue("@pass", TextBox2.Text);
+                    cmd.Parameters.AddWithValue("@pass", encrypt.encryptPass(TextBox2.Text));
                     int result = (int)cmd.ExecuteScalar();
                     if (result > 0)
                     {
@@ -70,6 +70,7 @@ namespace auction_proj
                                 Session["loggedIn"] = "true";
                             }
                         }
+                        con.Close();
                         Response.Redirect("~/Main.aspx");
                     }
                 }
@@ -84,29 +85,9 @@ namespace auction_proj
         {
             // In a using statement, acquire the SqlConnection as a resource.
             //
-            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(conStr))
-            {
-                //
-                // The following code uses an SqlCommand based on the SqlConnection.
-                //
-                //SqlCommand command = new SqlCommand("SELECT * FROM Table1", con);
-                //command.ExecuteNonQuery();
-                try
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder_All (account_email, account_password) VALUES (@uname, @pass)", con);
-                    cmd.Parameters.AddWithValue("@uname", TextBox1.Text);
-                    cmd.Parameters.AddWithValue("@pass", encrypt.encryptPass(TextBox2.Text));
-                    cmd.ExecuteNonQuery();
-                } 
-                catch (Exception ex)
-                {
-                    Label3.Text = ("Unexpected error:" + ex.Message);
-                }
-            }
+
             BidderEditProfile.whatChoice(2);
-            //Response.Redirect("~/BidderEditProfile.aspx");
+            Response.Redirect("~/BidderEditProfile.aspx");
         }
 
         protected void LoginView1_ViewChanged(object sender, EventArgs e)
