@@ -10,13 +10,13 @@ create trigger employee_all_delete_trig
 		begin
 			while(exists(select account_email from #ttable))
 				begin
-					select top 1 @account_email = account_email
-					select top 1 @account_password = account_password
-					select top 1 @full_name = full_name
+					select top 1 @account_email = account_email from #ttable
+					select top 1 @account_password = account_password from #ttable
+					select top 1 @full_name = full_name from #ttable
 					delete from Employee_Name
 						where employee = @account_email
 					delete from Employee_Account
-						where employee_account = @employee_account
+						where account_email = @account_email
 					delete from #ttable where account_email = @account_email
 				end
 		end

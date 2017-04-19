@@ -7,7 +7,6 @@ create trigger auction_all_delete_trig
 	begin
 		declare @org varchar(50)
 		declare @contact varchar(50)
-		declare @phone varchar(12)
 		declare @date_time datetime
 		declare @intake varchar(19)
 		declare @exp_num_items int
@@ -21,13 +20,10 @@ create trigger auction_all_delete_trig
 				begin
 					select top 1 @org = org from #ttable
 					select top 1 @contact = contact from #ttable
-					select top 1 @phone = phone from #ttable
 					select top 1 @date_time = date_time from #ttable
 					select top 1 @intake = intake from #ttable
 					select top 1 @exp_num_items = exp_num_items from #ttable
-					select top 1 @comments = comments from #ttable
-					delete from Auction_Contact_Phone
-						where contact = @contact  
+					select top 1 @comments = comments from #ttable  
 					delete from Auction_Date_Time
 						where org = @org
 					delete from Auction_Intake
@@ -38,13 +34,12 @@ create trigger auction_all_delete_trig
 						where org = @org
 
 					--for rep tables using auction org
-					select @rep = rep from NPO_Rep_Org where org = @org
-
-					delete from NPO_Rep_Org
-						where org = @org
-
+					delete from NPO_Account_Name
+						where rep = @contact
+					delete from NPO_Account_Phone
+						where rep = @contact
 					delete from NPO_Rep_Account
-						where account_email = @rep
+						where account_email = @contact
 
 					--org referenced in Bid
 					delete from Bid
@@ -60,4 +55,4 @@ create trigger auction_all_delete_trig
 			end
 		end
 
-delete from Auction_All where org = 'WWO'
+--delete from Auction_All where org = 'WWO'

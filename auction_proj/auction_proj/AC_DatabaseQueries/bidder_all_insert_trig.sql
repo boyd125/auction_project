@@ -1,3 +1,4 @@
+--triggers on insert
 create trigger bidder_all_insert_trig
 	on Bidder_All
 	instead of insert
@@ -25,6 +26,7 @@ create trigger bidder_all_insert_trig
 					select top 1 @city = city from #ttable
 					select top 1 @us_state = us_state from #ttable
 					select top 1 @zip = zip from #ttable
+
 					insert into Bidder_Account values(@account_email, @account_password)
 					insert into Bidder_Name values (@account_email, @full_name)
 					insert into Bidder_Phone values (@account_email, @phone)
@@ -33,8 +35,9 @@ create trigger bidder_all_insert_trig
 					insert into Full_Address values (@street, @city, @us_state, @zip)
 					delete from #ttable where account_email = @account_email
 				end
-			end
 		end
+	end
 
+--test itsert
 --insert into Bidder_All values ('new@account.com', 'password', 'New Name', '123-124-1423',
 	--'2345-2534-5324-5243', '2354 St.', 'Town', 'Oblivion', '99999')

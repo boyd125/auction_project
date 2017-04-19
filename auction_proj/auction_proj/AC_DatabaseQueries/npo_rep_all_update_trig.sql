@@ -11,9 +11,9 @@ create trigger npo_rep_all_update_trigger
 		begin
 			while(exists(select account_email from #ttable))
 				begin
-					select top 1 @account_email = account_email
-					select top 1 @account_password = account_password
-					select top 1 @org = org
+					select top 1 @account_email = account_email from #ttable
+					select top 1 @account_password = account_password from #ttable
+					select top 1 @org = org from #ttable
 					update NPO_Rep_Account
 						set account_password = @account_password where account_email = @account_email
 					update NPO_Rep_Org
