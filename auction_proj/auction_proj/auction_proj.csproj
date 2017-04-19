@@ -439,7 +439,10 @@
     <Compile Include="BidderEditProfile.aspx.designer.cs">
       <DependentUpon>BidderEditProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dbClass.cs" />
+    <Compile Include="dbClass.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="encrypt.cs" />
     <Compile Include="user.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
