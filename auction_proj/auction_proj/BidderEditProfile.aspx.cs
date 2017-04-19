@@ -14,7 +14,14 @@ namespace auction_proj
         public static int whatToDo = -1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(whatToDo != 2)
+            /*
+            nameInput.Text = (string)Session["full_name"];
+            phoneInput.Text = (string)Session["phone"];
+            streetInput.Text = (string)Session["street"];
+            stateInput.Text = (string)Session["us_state"];
+            zipInput.Text = (string)Session["zip"];
+            */
+            if (whatToDo != 2)
             {
                 if ((string)Session["loggedIn"] == "false")
                 {
@@ -48,27 +55,21 @@ namespace auction_proj
 
         protected void editProfSubmit_Click(object sender, EventArgs e)
         {
-            //just edited profile
             if (editProfSubmit.Text.ToString().Equals("Submit"))
-            {
-                //TODO record the data
+            {                
                 Session["full_name"] = nameInput.Text;
                 Session["phone"] = phoneInput.Text;
                 Session["street"] = streetInput.Text;
                 Session["us_state"] = stateInput.Text;
                 Session["zip"] = zipInput.Text;
-                editLabel.Text = (string)Session["full_name"];
+                dbClass.update();
+                //TODO record the data
                 whatToDo = 0;
                 Response.Redirect("~/BidderEditProfile.aspx");
             }
             //want to edit profile 
             else if (editProfSubmit.Text.ToString().Equals("Edit"))
             {
-                nameInput.Text = (string)Session["full_name"];
-                phoneInput.Text = (string)Session["phone"];
-                streetInput.Text = (string)Session["street"];
-                stateInput.Text = (string)Session["us_state"];
-                zipInput.Text = (string)Session["zip"];
                 whatToDo = 1;
                 Response.Redirect("~/BidderEditProfile.aspx");
             }
@@ -83,14 +84,13 @@ namespace auction_proj
 
         public void showEditProfile()
         {
-
             editLabel.Text = "  Edit Profile  ";
             nameInput.Visible = true;
             //nameInput.Text = name;
             nameInputLabel.Text = "Name:";
             emailInput.Visible = false;
             //emailInput.Text = email;
-            emailILabel.Text ="Email:" + (string)Session["account_email"];
+            emailILabel.Text ="Email:   " + (string)Session["account_email"];
             phoneInput.Visible = true;
             //phoneInput.Text = phone;
             phoneLabel.Text ="Phone #:";
@@ -152,22 +152,17 @@ namespace auction_proj
             //nameInput.Text = name;
             nameInputLabel.Text = "Name:";
             emailInput.Visible = true;
-            emailInput.Text = (string)Session["account_email"];
             emailILabel.Text = "Email:";
             phoneInput.Visible = true;
-            phoneInput.Text = (string)Session["phone"];
             phoneLabel.Text = "Phone #:";
             addressLabel.Text = "Address:";
             streetInput.Visible = true;
-            streetInput.Text = (string)Session["street"];
             streetAdLabel.Text = "Street:";
             cityInput.Visible = true;
             cityLabel.Text = "City:";
             stateInput.Visible = true;
-            stateInput.Text = (string)Session["us_state"];
             stateLabel.Text = "State:";
             zipInput.Visible = true;
-            zipInput.Text = (string)Session["zip"];
             zipLabel.Text = "Zip:";
 
             editProfSubmit.Text = "Register";

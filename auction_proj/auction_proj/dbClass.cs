@@ -7,20 +7,32 @@ using System.Web;
 
 namespace auction_proj
 {
-    public class dbClass
+    public class dbClass : System.Web.UI.Page
     {
-        public static String query(string select, string from, string where)
+        public static void update()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(@"SELECT @sstring FROM @fstring 
-                                        WHERE @wstring", con);
-            cmd.Parameters.AddWithValue("@sstring", select);
-            cmd.Parameters.AddWithValue("@fstring", from);
-            cmd.Parameters.AddWithValue("@wstring", where);
-            string temp= (string)cmd.ExecuteScalar();
-            con.Close();
-            return temp;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                        cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                        cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
+                        cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
+                        cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
+                        cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
+                        cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+            }
         }
     }
 }
