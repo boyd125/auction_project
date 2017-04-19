@@ -47,5 +47,5 @@ create trigger item_all_insert_trig
 		end
 	end
 
-insert into Item_All(item_name, auction, quantity, start_bid, donor, sell_price, condition, comments, photo)
-	values ('name', 'auction', 3, 4.50, 'Frank', 10.00, 'good', 'it''s good', null)
+--insert into Item_All(item_name, auction, quantity, start_bid, donor, sell_price, condition, comments, photo)
+	--values ('name', 'auction', 3, 4.50, 'Frank', 10.00, 'good', 'it''s good', null)

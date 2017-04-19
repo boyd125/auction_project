@@ -10,9 +10,9 @@ create trigger employee_all_insert_trigger
 		begin
 			while(exists(select account_email from #ttable))
 				begin
-					select top 1 @account_email = account_email
-					select top 1 @account_password = account_password
-					select top 1 @full_name = full_name
+					select top 1 @account_email = account_email from #ttable
+					select top 1 @account_password = account_password from #ttable
+					select top 1 @full_name = full_name from #ttable
 					insert into Employee_Account values (@account_email, @account_password)
 					insert into Employee_Name values (@account_email, @full_name)
 					delete from #ttable where account_email = @account_email

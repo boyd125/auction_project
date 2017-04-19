@@ -10,9 +10,9 @@ create trigger npo_rep_all_delete_trigger
 		begin
 			while(exists(select account_email from #ttable))
 				begin
-					select top 1 @account_email = account_email
-					select top 1 @account_password = account_password
-					select top 1 @org = org
+					select top 1 @account_email = account_email from #ttable
+					select top 1 @account_password = account_password from #ttable
+					select top 1 @org = org from #ttable
 					delete from NPO_Rep_Org
 						where rep = @account_email
 					delete from NPO_Rep_Account

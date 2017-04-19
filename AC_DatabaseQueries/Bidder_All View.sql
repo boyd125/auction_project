@@ -1,3 +1,4 @@
+--aggregates bidder and address tables
 create view Bidder_All
 	as
 		select Bidder_Account.account_email account_email, Bidder_Account.account_password account_password, full_name, phone,

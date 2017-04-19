@@ -1,3 +1,4 @@
+--triggers on delete
 create trigger bidder_all_delete_trig
 	on Bidder_All
 	instead of delete
@@ -25,6 +26,8 @@ create trigger bidder_all_delete_trig
 					select top 1 @city = city from #ttable
 					select top 1 @us_state = us_state from #ttable
 					select top 1 @zip = zip from #ttable
+					
+					--foreign key tables
 					delete from Bidder_Name
 						where bidder = @account_email
 					delete from Bidder_Phone
@@ -33,8 +36,6 @@ create trigger bidder_all_delete_trig
 						where bidder = @account_email
 					delete from Full_Address
 						where street = @street
-
-					--bidder referenced in bid
 					delete from Bid
 						where bidder = @account_email
 
@@ -48,4 +49,5 @@ create trigger bidder_all_delete_trig
 			end
 		end
 
+--test delete
 --delete from Bidder_All where account_email = 'aceattorney@gmail.com'

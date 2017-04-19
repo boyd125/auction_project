@@ -11,9 +11,9 @@ create trigger emplyee_all_update_trig
 		begin
 			while(exists(select account_email from #ttable))
 				begin
-					select top 1 @account_email = account_email
-					select top 1 @account_password = account_password
-					select top 1 @full_name = full_name
+					select top 1 @account_email = account_email from #ttable
+					select top 1 @account_password = account_password from #ttable
+					select top 1 @full_name = full_name from #ttable
 					update Employee_Account	
 						set account_password = @account_password where account_email = @account_email
 					update Employee_Name

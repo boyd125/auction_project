@@ -1,24 +1,42 @@
 set nocount on
 
---auction tables
-
+--base tables
 insert into Auction_Org(org)
 	values
 		('WWO'), 
 		('UNICEF'), 
 		('Red Cross')
 
+insert into Employee_Account(account_email, account_password)
+	values
+		('shaggy@auctioncentral.org', 'zoinks'),
+		('velma@auctioncentral.org', 'jinkies')
+
+insert into NPO_Rep_Account(account_email, account_password)
+	values
+		('scooby@wwo.org', 'scoobysnacks'),
+		('daphne@unicef.org', 'foundtrap'),
+		('fred@redcross.org', 'splitup')
+
+insert into Item_Auction_ID(item_name, auction, id)
+	values
+		('Faux Fur Coat', 'WWO', 0001),
+		('Finger Painting', 'UNICEF', 0002),
+		('Bandages', 'Red Cross', 0003)
+
+insert into Bidder_Account(account_email, account_password)
+	values
+		('edgeworth@aol.com', 'steelsamurai'),
+		('aceattorney@gmail.com', 'objection'),
+		('mayafey@yahoo.com', 'mysticmaya')
+
+--foreign key tables
+
 insert into Auction_Contact(org, contact)
 	values
-		('WWO', 'Charlie Chaplin'),
-		('UNICEF', 'John Johnson'),
-		('Red Cross', 'Paul Paulson')
-
-insert into Auction_Contact_Phone(contact, phone)
-	values
-		('Charlie Chaplin', '555-555-5555'),
-		('John Johnson', '666-666-6666'),
-		('Paul Paulson', '777-777-7777')
+		('WWO', 'scooby@wwo.org'),
+		('UNICEF', 'daphne@unicef.org'),
+		('Red Cross', 'fred@redcross.org')
 
 insert into Auction_Date_Time(org, date_time)
 	values
@@ -28,9 +46,9 @@ insert into Auction_Date_Time(org, date_time)
 
 insert into Auction_Intake(org, intake)
 	values
-		('WWO', 'Sally'),
-		('UNICEF', 'Sam'),
-		('Red Cross', 'Sarah')
+		('WWO', 'shaggy@auctioncentral.org'),
+		('UNICEF', 'velma@auctioncentral.org'),
+		('Red Cross', 'velma@auctioncentral.org')
 
 insert into Auction_Exp_Num_Items(org, exp_num_items)
 	values
@@ -44,13 +62,22 @@ insert into Auction_Comments(org, comments)
 		('UNICEF', null),
 		('Red Cross', null)
 
---item tables
-
-insert into Item_Auction_ID(item_name, auction, id)
+insert into Employee_Name(employee, full_name)
 	values
-		('Faux Fur Coat', 'WWO', 0001),
-		('Finger Painting', 'UNICEF', 0002),
-		('Bandages', 'Red Cross', 0003)
+		('shaggy@auctioncentral.org', 'Shaggy Rogers'),
+		('velma@auctioncentral.org', 'Velma Dinkly')
+
+insert into NPO_Rep_Name(rep, full_name)
+	values
+		('scooby@wwo.org', 'Scooby Doo'),
+		('daphne@unicef.org', 'Daphne Blake'),
+		('fred@redcross.org', 'Fred Jones')
+
+insert into NPO_Rep_Phone(rep, phone)
+	values
+		('scooby@wwo.org', '(666) 666-6666'),
+		('daphne@unicef.org', '(777) 777-7777'),
+		('fred@redcross.org', '(888) 888-8888')
 
 insert into Item_Quantity(id, quantity)
 	values
@@ -94,14 +121,6 @@ insert into Item_Photo(id, photo)
 		(0002, null),
 		(0003, null)
 
---bidder tables
-
-insert into Bidder_Account(account_email, account_password)
-	values
-		('edgeworth@aol.com', 'steelsamurai'),
-		('aceattorney@gmail.com', 'objection'),
-		('mayafey@yahoo.com', 'mysticmaya')
-
 insert into Bidder_Name(bidder, full_name)
 	values
 		('edgeworth@aol.com', 'Miles Edgeworth'),
@@ -110,9 +129,9 @@ insert into Bidder_Name(bidder, full_name)
 
 insert into Bidder_Phone(bidder, phone)
 	values
-		('edgeworth@aol.com', '222-222-2222'),
-		('aceattorney@gmail.com', '333-333-3333'),
-		('mayafey@yahoo.com', '444-444-4444')
+		('edgeworth@aol.com', '(222) 222-2222'),
+		('aceattorney@gmail.com', '(333) 333-3333'),
+		('mayafey@yahoo.com', '(444) 444-4444')
 
 insert into Bidder_Payment(bidder, credit_card)
 	values
@@ -126,15 +145,11 @@ insert into Bidder_Street_Address(bidder, street)
 		('aceattorney@gmail.com', '5678 Foo Avenue'),
 		('mayafey@yahoo.com', '9012 Bar Lane')
 
---address table
-
 insert into Full_Address(street, city, us_state, zip)
 	values
 		('1234 Blah Street', 'Pittsburgh', 'Pennsylvania', 12345),
 		('5678 Foo Avenue', 'Los Angeles', 'California', 90123),
 		('9012 Bar Lane', 'Anchorage', 'Alaska', 25349)
-
---bid table
 
 insert into Bid(bidder, auction, item, bid)
 	values
@@ -142,28 +157,5 @@ insert into Bid(bidder, auction, item, bid)
 		('aceattorney@gmail.com', 'UNICEF', 0002, 5.00),
 		('mayafey@yahoo.com', 'Red Cross', 0003, 20.00)
 
---employee tables
 
-insert into Employee_Account(account_email, account_password)
-	values
-		('shaggy@auctioncentral.org', 'zoinks'),
-		('velma@auctioncentral.org', 'jinkies')
 
-insert into Employee_Name(employee, full_name)
-	values
-		('shaggy@auctioncentral.org', 'Shaggy Rogers'),
-		('velma@auctioncentral.org', 'Velma Dinkly')
-
---npo_rep tables
-
-insert into NPO_Rep_Account(account_email, account_password)
-	values
-		('scooby@wwo.org', 'scoobysnacks'),
-		('daphne@unicef.org', 'foundtrap'),
-		('fred@redcross.org', 'splitup')
-
-insert into NPO_Rep_Org(rep, org)
-	values
-		('Scooby@wwo.org', 'WWO'),
-		('daphne@unicef.org', 'UNICEF'),
-		('fred@redcross.org', 'Red Cross')

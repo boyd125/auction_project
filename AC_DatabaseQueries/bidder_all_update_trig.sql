@@ -1,4 +1,5 @@
---can't change email
+--can't change primary key account_email
+--triggers on update
 create trigger bidder_all_update_trig
 	on Bidder_All
 	instead of update
@@ -26,6 +27,7 @@ create trigger bidder_all_update_trig
 					select top 1 @city = city from #ttable
 					select top 1 @us_state = us_state from #ttable
 					select top 1 @zip = zip from #ttable
+
 					update Bidder_Account
 						set account_password = @account_password where account_email = @account_email
 					update Bidder_Name
@@ -36,11 +38,13 @@ create trigger bidder_all_update_trig
 						set credit_card = @credit_card where bidder = @account_email
 					update Bidder_Street_Address
 						set street = @street where bidder = @account_email
+					--street set to cascade into Full_Address
 					update Full_Address
 						set city = @city, us_state = @us_state, zip = @zip where street = @street
 					delete from #ttable where account_email = @account_email
 				end
-			end
 		end
+	end
 
+--test update
 --update Bidder_All set full_name = 'Phoenix Wrong' where account_email = 'aceattorney@gmail.com'
