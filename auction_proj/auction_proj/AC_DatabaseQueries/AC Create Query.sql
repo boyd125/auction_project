@@ -166,7 +166,7 @@ create table Bidder_Street_Address(
 	bidder varchar(50),
 	street varchar(50)
 	foreign key(bidder) references Bidder_Account(account_email),
-	primary key(street)
+	primary key(bidder)
 )
 
 create table Full_Address(
@@ -175,7 +175,7 @@ create table Full_Address(
 	us_state varchar(50),
 	zip varchar(50),
 	foreign key(street) references Bidder_Street_Address(street) on update cascade,
-	primary key(street)
+	primary key(street, city, us_state, zip)
 )
 
 create table Bid(
