@@ -246,6 +246,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="login.aspx" />
     <Content Include="Main.aspx" />
+    <Content Include="OrgProfile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -443,6 +444,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="encrypt.cs" />
+    <Compile Include="OrgProfile.aspx.cs">
+      <DependentUpon>OrgProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrgProfile.aspx.designer.cs">
+      <DependentUpon>OrgProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
