@@ -91,7 +91,7 @@
         <asp:TextBox ID="repPhoneInput" runat="server" Width="153px" >(000) 000-0000</asp:TextBox>
                 </td>
                 <td class="auto-style2">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="phoneInput" ErrorMessage="Not a valid Phone#" Font-Bold="True" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="repPhoneInput" ErrorMessage="Not a valid Phone#" Font-Bold="True" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -103,7 +103,7 @@
 
                 </td>
                 <td class="auto-style2">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emailInput" ErrorMessage="Not a valid Email" Font-Bold="True" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="repEmailInput" ErrorMessage="Not a valid Email" Font-Bold="True" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
 
                 </td>
             </tr>
@@ -157,7 +157,7 @@
 
                 </td>
                 <td class="auto-style2">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="zipInput" ErrorMessage="Please enter Zip Code" Font-Bold="True" ForeColor="Red" ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="orgZipInput" ErrorMessage="Please enter Zip Code" Font-Bold="True" ForeColor="Red" ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
                  <table align="left" class="auto-style1">
