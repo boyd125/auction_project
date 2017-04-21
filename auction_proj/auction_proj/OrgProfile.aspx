@@ -46,7 +46,7 @@
     <div style="height: 448px; width: 681px">
      
         <br />
-        <asp:Label ID="editLabel" runat="server" Font-Underline="True" Font-Size="Larger" Text="  Edit Profile  " Font-Bold="True" ForeColor="#66CCFF" ></asp:Label>
+        <asp:Label ID="editLabel" runat="server" Font-Underline="True" Font-Size="Larger" Text="  Edit Organization Profile  " Font-Bold="True" ForeColor="#66CCFF" ></asp:Label>
        
         <br />
         <br />
