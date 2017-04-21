@@ -7,18 +7,14 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 80%;
+            width: 89%;
             float: left;
         }
         .auto-style2 {
-            width: 183px;
-        }
-        .auto-style3 {
-            height: 26px;
-            width: 166px;
+            width: 206px;
         }
         .auto-style4 {
-            width: 183px;
+            width: 206px;
             height: 26px;
         }
         .auto-style5 {
@@ -36,8 +32,19 @@
             width: 188px;
             height: 26px;
         }
-        .auto-style11 {
-            width: 166px;
+        .auto-style12 {
+            height: 26px;
+            width: 282px;
+        }
+        .auto-style13 {
+            width: 282px;
+        }
+        .auto-style14 {
+            width: 257px;
+            height: 26px;
+        }
+        .auto-style15 {
+            width: 257px;
         }
     </style>
 </head>
@@ -56,7 +63,7 @@
         </table>
         <table align="left" class="auto-style1">
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style12">
         <asp:Label ID="nameInputLabel" runat="server" Font-Bold="true" Text="Name: " ></asp:Label>
                 </td>
                 <td class="auto-style5">
@@ -66,7 +73,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="phoneLabel" runat="server" Font-Bold="true" Text="Phone Number: " ></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -77,7 +84,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="emailILabel" runat="server" Font-Bold="true" Text="Email: " ></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -90,7 +97,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="addressLabel" runat="server" Font-Bold="True" Text="Address" ></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -99,7 +106,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="streetAdLabel" runat="server" Font-Bold="true" Text="Street: "></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -109,7 +116,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="cityLabel" runat="server" Font-Bold="true" Text="City: "></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -119,7 +126,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="stateLabel" runat="server" Font-Bold="true" Text="State: "></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -129,7 +136,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style11">
+                <td class="auto-style13">
         <asp:Label ID="zipLabel" runat="server" Font-Bold="true" Text="Zip Code: "></asp:Label>
                 </td>
                 <td class="auto-style6">
@@ -142,7 +149,7 @@
             </tr>
                  <table align="left" class="auto-style1">
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style14">
         <asp:Label ID="userLabel" runat="server" Font-Bold="true" Text="UserName: "  Visible="false"></asp:Label>
                 </td>
                 <td class="auto-style9">
@@ -153,7 +160,7 @@
             </tr>
             <br />
             <tr>
-                <td class="auto-style3">
+                <td class="auto-style14">
           <asp:Label ID="passLabel" runat="server" Font-Bold="true" Text="Password: " Visible="false" ></asp:Label>
 
                 </td>
@@ -165,7 +172,7 @@
             </tr>
             <br />
              <tr>
-                <td class="auto-style3">
+                <td class="auto-style14">
           <asp:Label ID="passConfirmLabel" runat="server" Font-Bold="true" Text="Confirm Password: " Visible="false"></asp:Label>
 
                 </td>
@@ -180,7 +187,7 @@
 
 
             <br />
-                <td class="auto-style11">
+                <td class="auto-style15">
         <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
                   
 
