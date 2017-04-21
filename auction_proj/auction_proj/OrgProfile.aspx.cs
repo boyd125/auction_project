@@ -11,6 +11,15 @@ namespace auction_proj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            orgNameInput.Text = "Red Cross";
+            repNameInput.Text = "Joe Smith";
+            repPhoneInput.Text = "(714) 999-9999";
+            repEmailInput.Text = "smith@redcross.com";
+            orgStreetInput.Text = "1111 E Alabama Ave.";
+            orgStateInput.Text = "CA";
+            orgCityInput.Text = "Los Angeles";
+            orgZipInput.Text = "83043";
+
 
         }
     }

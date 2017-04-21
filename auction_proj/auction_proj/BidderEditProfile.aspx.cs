@@ -64,12 +64,12 @@ namespace auction_proj
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
                         {
-                            Session["full_name"] = nameInput.Text;
-                            Session["phone"] = phoneInput.Text;
-                            Session["street"] = streetInput.Text;
-                            Session["city"] = cityInput.Text;
-                            Session["us_state"] = stateInput.Text;
-                            Session["zip"] = zipInput.Text;
+                            this.Session["full_name"] = nameInput.Text.ToString();
+                            Session["phone"] = phoneInput.Text.ToString();
+                            Session["street"] = streetInput.Text.ToString();
+                            Session["city"] = cityInput.Text.ToString();
+                            Session["us_state"] = stateInput.Text.ToString();
+                            Session["zip"] = zipInput.Text.ToString();
                             cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
                             cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
                             cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
@@ -131,26 +131,25 @@ namespace auction_proj
         {
             editLabel.Text = "  Edit Profile  ";
             nameInput.Visible = true;
-            //nameInput.Text = name;
+            nameInput.Text = (string)Session["full_name"];
             nameInputLabel.Text = "Name:";
             emailInput.Visible = false;
-            //emailInput.Text = email;
             emailILabel.Text ="Email:   " + (string)Session["account_email"];
             phoneInput.Visible = true;
-            //phoneInput.Text = phone;
+            phoneInput.Text = (string)Session["phone"];
             phoneLabel.Text ="Phone #:";
-            addressLabel.Text = "Address:";
+            addressLabel.Text = "Address";
             streetInput.Visible = true;
-            //streetInput.Text = street;
+            streetInput.Text = (string)Session["street"];
             streetAdLabel.Text = "Street:";
             cityInput.Visible = true;
-            //cityInput.Text = city;
+            cityInput.Text = (string)Session["city"];
             cityLabel.Text = "City:";
             stateInput.Visible = true;
-            //stateInput.Text = state;
+            stateInput.Text = (string)Session["us_state"];
             stateLabel.Text = "State:";
             zipInput.Visible = true;
-            //zipInput.Text = zip;
+            zipInput.Text = (string)Session["zip"];
             zipLabel.Text = "Zip:";
 
             editProfSubmit.Text = "Submit";
@@ -167,9 +166,10 @@ namespace auction_proj
             phoneInput.Visible = false;
             //phone = phoneInput.Text.ToString();
             phoneLabel.Text = phoneLabel.Text.ToString() + (string)Session["phone"];
-            addressLabel.Text = addressLabel.Text.ToString() + (string)Session["street"];
+            streetAdLabel.Text = streetAdLabel.Text.ToString() + (string)Session["street"];
             streetInput.Visible = false;
             //street = streetInput.Text.ToString();
+            cityLabel.Text = cityLabel.Text.ToString() + (string)Session["city"];
             cityInput.Visible = false;
             //city = cityInput.Text.ToString();
             stateInput.Visible = false;
