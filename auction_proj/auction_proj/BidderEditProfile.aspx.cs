@@ -186,8 +186,7 @@ namespace auction_proj
         {
             editLabel.Text = "  New Profile  ";
 
-            userLabel.Visible = true;
-            userTB.Visible = true;
+            
             passLabel.Visible = true;
             passTB.Visible = true;
             passConfirmLabel.Visible = true;

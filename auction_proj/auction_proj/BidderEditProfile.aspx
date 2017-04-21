@@ -141,16 +141,7 @@
                 </td>
             </tr>
                  <table align="left" class="auto-style1">
-            <tr>
-                <td class="auto-style3">
-        <asp:Label ID="userLabel" runat="server" Font-Bold="true" Text="UserName: "  Visible="false"></asp:Label>
-                </td>
-                <td class="auto-style9">
-        <asp:TextBox ID="userTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
-                </td>
-                <td class="auto-style10">
-                </td>
-            </tr>
+           
             <br />
             <tr>
                 <td class="auto-style3">
