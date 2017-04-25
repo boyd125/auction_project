@@ -64,7 +64,7 @@ namespace auction_proj
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
                         {
-                            this.Session["full_name"] = nameInput.Text.ToString();
+                            Session["full_name"] = nameInput.Text.ToString();
                             Session["phone"] = phoneInput.Text.ToString();
                             Session["street"] = streetInput.Text.ToString();
                             Session["city"] = cityInput.Text.ToString();
@@ -80,21 +80,22 @@ namespace auction_proj
                             cmd.ExecuteNonQuery();
                         }
                         conn.Close();
-                        whatToDo = 0;
-                        Response.Redirect("~/BidderEditProfile.aspx");
+                        
                     }
                 }
                 catch (SqlException ex)
                 {
                     editLabel.Text = "Not all valid values. Please try again";
                 }
+                whatToDo = 0;
+                showCurrentProfile();
                 //TODO record the data
             }
             //want to edit profile 
             else if (editProfSubmit.Text.ToString().Equals("Edit"))
             {
                 whatToDo = 1;
-                Response.Redirect("~/BidderEditProfile.aspx");
+                showEditProfile();
             }
             //just entered register info  
             else if (editProfSubmit.Text.ToString().Equals("Register"))
