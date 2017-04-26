@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Web.Security;
+using System.Diagnostics;
 
 namespace auction_proj
 {

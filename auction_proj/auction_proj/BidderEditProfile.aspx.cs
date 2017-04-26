@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 
 namespace auction_proj
 {
@@ -28,20 +29,20 @@ namespace auction_proj
                     Response.Redirect("~/login.aspx");
                 }
             }
-
-            if (whatToDo == 0)
-            {
-                showCurrentProfile();
+            if (!IsPostBack) { 
+                if (whatToDo == 0)
+                {
+                    showCurrentProfile();
+                }
+                else if (whatToDo == 1)
+                {
+                    showEditProfile();
+                }
+                else if (whatToDo == 2)
+                {
+                    showRegProfile();
+                }
             }
-            else if (whatToDo == 1)
-            {
-                showEditProfile();
-            }
-            else if (whatToDo == 2)
-            {
-                showRegProfile();
-            }
-
 
         }
         public static void whatChoice(int choice)
@@ -55,8 +56,9 @@ namespace auction_proj
         protected void editProfSubmit_Click(object sender, EventArgs e)
         {
             if (editProfSubmit.Text.ToString().Equals("Submit"))
-            {                
+            {
                 //dbClass.update();
+                //Debug.WriteLine(nameInput.Text.ToString());
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
@@ -64,19 +66,26 @@ namespace auction_proj
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
                         {
-                            this.Session["full_name"] = nameInput.Text.ToString();
-                            Session["phone"] = phoneInput.Text.ToString();
-                            Session["street"] = streetInput.Text.ToString();
-                            Session["city"] = cityInput.Text.ToString();
-                            Session["us_state"] = stateInput.Text.ToString();
-                            Session["zip"] = zipInput.Text.ToString();
+                            //this.Session["full_name"] = nameInput.Text.ToString();
+                            //Session["phone"] = phoneInput.Text.ToString();
+                            //Session["street"] = streetInput.Text.ToString();
+                            //Session["city"] = cityInput.Text.ToString();
+                            //Session["us_state"] = stateInput.Text.ToString();
+                            //Session["zip"] = zipInput.Text.ToString();
+                            //cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                            //cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                            //cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
+                            //cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
+                            //cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
+                            //cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
+                            //cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
                             cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
-                            cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
-                            cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
-                            cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
-                            cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
-                            cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
-                            cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
+                            cmd.Parameters.AddWithValue("@name", nameInput.Text.ToString());
+                            cmd.Parameters.AddWithValue("@phone", phoneInput.Text.ToString());
+                            cmd.Parameters.AddWithValue("@street", streetInput.Text.ToString());
+                            cmd.Parameters.AddWithValue("@city", cityInput.Text.ToString());
+                            cmd.Parameters.AddWithValue("@state", stateInput.Text.ToString());
+                            cmd.Parameters.AddWithValue("@zip", zipInput.Text.ToString());
                             cmd.ExecuteNonQuery();
                         }
                         conn.Close();
@@ -185,8 +194,6 @@ namespace auction_proj
         public void showRegProfile()
         {
             editLabel.Text = "  New Profile  ";
-
-            
             passLabel.Visible = true;
             passTB.Visible = true;
             passConfirmLabel.Visible = true;
@@ -216,7 +223,7 @@ namespace auction_proj
 
         protected void backToHome_Click(object sender, EventArgs e)
         {
-
+            //Debug.WriteLine(nameInput.Text.ToString());
             Response.Redirect("~/Main.aspx");
         }
     }
