@@ -66,12 +66,12 @@ namespace auction_proj
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
                         {
-                            //this.Session["full_name"] = nameInput.Text.ToString();
-                            //Session["phone"] = phoneInput.Text.ToString();
-                            //Session["street"] = streetInput.Text.ToString();
-                            //Session["city"] = cityInput.Text.ToString();
-                            //Session["us_state"] = stateInput.Text.ToString();
-                            //Session["zip"] = zipInput.Text.ToString();
+                            Session["full_name"] = nameInput.Text.ToString();
+                            Session["phone"] = phoneInput.Text.ToString();
+                            Session["street"] = streetInput.Text.ToString();
+                            Session["city"] = cityInput.Text.ToString();
+                            Session["us_state"] = stateInput.Text.ToString();
+                            Session["zip"] = zipInput.Text.ToString();
                             //cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
                             //cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
                             //cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
