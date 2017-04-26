@@ -165,7 +165,7 @@
 
                 </td>
                 <td class="auto-style9">
-        <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
+        <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
                     &nbsp;</td>
@@ -177,7 +177,7 @@
 
                 </td>
                 <td class="auto-style9">
-        <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
+        <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="passTB" ControlToValidate="confirmTB" ErrorMessage="Passwords must match" Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
