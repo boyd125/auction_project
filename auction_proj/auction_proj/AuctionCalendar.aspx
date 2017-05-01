@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 149px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,11 +26,37 @@
                 <TodayDayStyle BackColor="#CCCCCC" />
                 <WeekendDayStyle BorderColor="#666666" />
             </asp:Calendar>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">Selected Date:</td>
+                    <td>
+                        <asp:Label ID="selectedDateLable" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Number of Auctions:</td>
+                    <td>
+                        <asp:Label ID="NumberOfAuctLable" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Auction Name&#39;s:</td>
+                    <td>
+                        <asp:Label ID="Auct1NameLable" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
         <br />
         <br />
         <asp:Button ID="backToHome" runat="server"  Text="Back To Home" OnClick="backToHome_Click"  style="margin-left: 42px; margin-top: 0px" />
 
     </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

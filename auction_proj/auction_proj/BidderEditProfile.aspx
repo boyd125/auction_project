@@ -77,7 +77,7 @@
         <asp:Label ID="phoneLabel" runat="server" Font-Bold="true" Text="Phone Number: " ></asp:Label>
                 </td>
                 <td class="auto-style6">
-        <asp:TextBox ID="phoneInput" runat="server" Width="153px" >(000) 000-0000</asp:TextBox>
+        <asp:TextBox ID="phoneInput" runat="server" Width="153px" >000-000-0000</asp:TextBox>
                 </td>
                 <td class="auto-style2">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="phoneInput" ErrorMessage="Not a valid Phone#" Font-Bold="True" ForeColor="Red" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
@@ -165,7 +165,7 @@
 
                 </td>
                 <td class="auto-style9">
-        <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
+        <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
                     &nbsp;</td>
@@ -177,7 +177,7 @@
 
                 </td>
                 <td class="auto-style9">
-        <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
+        <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
                 <td class="auto-style10">
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="passTB" ControlToValidate="confirmTB" ErrorMessage="Passwords must match" Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
