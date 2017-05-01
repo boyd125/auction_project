@@ -16,23 +16,134 @@ namespace auction_proj
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
+                    if ((string)HttpContext.Current.Session["account_type"] == "bidder")
                     {
-                        cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
-                        cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
-                        cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
-                        cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
-                        cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
-                        cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
-                        cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("UPDATE Bidder_All SET full_name=@name, phone=@phone, street=@street, city=@city, us_state=@state, zip = @zip" + " WHERE account_email=@Id", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                            cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                            cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
+                            cmd.Parameters.AddWithValue("@street", HttpContext.Current.Session["street"]);
+                            cmd.Parameters.AddWithValue("@city", HttpContext.Current.Session["city"]);
+                            cmd.Parameters.AddWithValue("@state", HttpContext.Current.Session["us_state"]);
+                            cmd.Parameters.AddWithValue("@zip", HttpContext.Current.Session["zip"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                        conn.Close();
                     }
-                    conn.Close();
+
+                    if ((string)HttpContext.Current.Session["account_type"] == "employee")
+                    {
+                        using (SqlCommand cmd = new SqlCommand("UPDATE EMPLOYEE_All SET full_name=@name" + " WHERE account_email=@Id", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                            cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                        conn.Close();
+                    }
+
+                    if ((string)HttpContext.Current.Session["account_type"] == "npo_rep")
+                    {
+                        using (SqlCommand cmd = new SqlCommand("UPDATE NPO_REP_All SET full_name=@name, phone=@phone" + " WHERE account_email=@Id", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", HttpContext.Current.Session["account_email"]);
+                            cmd.Parameters.AddWithValue("@name", HttpContext.Current.Session["full_name"]);
+                            cmd.Parameters.AddWithValue("@phone", HttpContext.Current.Session["phone"]);
+                            cmd.ExecuteNonQuery();
+                        }
+                        conn.Close();
+                    }
+
+                    else
+                    {
+                        //exception handling?
+                    }
                 }
             }
             catch (SqlException ex)
             {
             }
         }
+
+        public static List<string> all_auctions()
+        {
+            List<string> auctions = new List<string>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
+                {
+                    conn.Open();
+                    string oString = "Select * from Auction_All";
+                    SqlCommand oCmd = new SqlCommand(oString, conn);
+                    using (SqlDataReader oReader = oCmd.ExecuteReader())
+                    {
+                        while(oReader.Read())
+                        {
+                            auctions.Add(oReader["org"].ToString());
+                        }
+                    }
+                }
+                return auctions;
+            }
+            catch(SqlException ex)
+            {
+                return auctions;
+            }
+        }
+
+        public static List<string> auction_info(string auction_org)
+        {
+            List<string> info = new List<string>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
+                {
+                    conn.Open();
+                    string oString = "Select * from Auction_All where org = " + auction_org;
+                    SqlCommand oCmd = new SqlCommand(oString, conn);
+                    using (SqlDataReader oReader = oCmd.ExecuteReader())
+                    {
+                        info.Add(oReader["org"].ToString());
+                        info.Add(oReader["contact"].ToString());
+                        info.Add(oReader["date_time"].ToString());
+                        info.Add(oReader["intake"].ToString());
+                        info.Add(oReader["exp_num_items"].ToString());
+                        info.Add(oReader["comments"].ToString());
+                    }
+                }
+                return info;
+            }
+            catch (SqlException ex)
+            {
+                return info;
+            }
+        }
+        public static List<string> auction_on_date(string date)
+        {
+            List<string> auctions = new List<string>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
+                {
+                    conn.Open();
+                    string oString = "Select org from Auction_All where date_time between " + date + " 00:00:00 and " + date + " 23:59:59";
+                    SqlCommand oCmd = new SqlCommand(oString, conn);
+                    using (SqlDataReader oReader = oCmd.ExecuteReader())
+                    {
+                        while (oReader.Read())
+                        {
+                            auctions.Add(oReader["org"].ToString());
+                        }
+                    }
+                }
+                return auctions;
+            }
+            catch (SqlException ex)
+            {
+                return auctions;
+            }
+        }
     }
 }
+//update user with session variables

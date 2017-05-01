@@ -16,9 +16,6 @@
     </div>
         <div style="margin-left: 40px">
             <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Height="146px" Width="171px">
-                <asp:ListItem>WWO</asp:ListItem>
-                <asp:ListItem>UNICEF</asp:ListItem>
-                <asp:ListItem>Red Cross</asp:ListItem>
             </asp:ListBox>
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="buttonClick" style="margin-left: 25px" Text="Proceed" />
