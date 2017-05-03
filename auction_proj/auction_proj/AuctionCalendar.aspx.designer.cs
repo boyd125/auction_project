@@ -58,6 +58,15 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label Auct1NameLable;
         
         /// <summary>
+        /// Auct2NameLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Auct2NameLable;
+        
+        /// <summary>
         /// backToHome control.
         /// </summary>
         /// <remarks>

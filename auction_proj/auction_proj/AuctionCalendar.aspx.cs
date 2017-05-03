@@ -25,6 +25,7 @@ namespace auction_proj
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             selectedDateLable.Text = Calendar1.SelectedDate.ToLongDateString();
+
         }
     }
 }

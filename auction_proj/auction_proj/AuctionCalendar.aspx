@@ -47,7 +47,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="Auct2NameLable" runat="server"></asp:Label>
+                    </td>
                 </tr>
             </table>
         <br />
