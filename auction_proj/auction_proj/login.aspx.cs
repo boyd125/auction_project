@@ -69,6 +69,7 @@ namespace auction_proj
                                 Session["us_state"] = user.state;
                                 Session["zip"] = user.zip;
                                 Session["loggedIn"] = "true";
+                                Session["account_type"] = "bidder";
                             }
                         }
                         con.Close();
