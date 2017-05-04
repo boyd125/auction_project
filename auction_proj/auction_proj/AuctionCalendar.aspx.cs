@@ -19,7 +19,7 @@ namespace auction_proj
 // Go to Auction Buttons does not show unless there is an auction 
             int numValue;
             bool parsed = Int32.TryParse(Auct1NameLable.Text, out numValue);
-            if (numValue == 1)
+            if (numValue <= 1)
             {
                 GotoAuct2.Visible = false;
             }
