@@ -31,31 +31,40 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
         
         /// <summary>
-        /// selectedDateLable control.
+        /// selectedDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label selectedDateLable;
+        protected global::System.Web.UI.WebControls.Label selectedDateLabel;
         
         /// <summary>
-        /// NumberOfAuctLable control.
+        /// NumberOfAuctLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NumberOfAuctLable;
+        protected global::System.Web.UI.WebControls.Label NumberOfAuctLabel;
         
         /// <summary>
-        /// Auct1NameLable control.
+        /// AuctionNamesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Auct1NameLable;
+        protected global::System.Web.UI.WebControls.Label AuctionNamesLabel;
+        
+        /// <summary>
+        /// Auct1NameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Auct1NameLabel;
         
         /// <summary>
         /// GotoAuct1 control.
@@ -67,13 +76,13 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Button GotoAuct1;
         
         /// <summary>
-        /// Auct2NameLable control.
+        /// Auct2NameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Auct2NameLable;
+        protected global::System.Web.UI.WebControls.Label Auct2NameLabel;
         
         /// <summary>
         /// GotoAuct2 control.

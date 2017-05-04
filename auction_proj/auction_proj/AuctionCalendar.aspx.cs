@@ -18,7 +18,7 @@ namespace auction_proj
             }
 // Go to Auction Buttons does not show unless there is an auction on that date
             int numValue;
-            bool parsed = Int32.TryParse(Auct1NameLable.Text, out numValue);
+            bool parsed = Int32.TryParse(NumberOfAuctLabel.Text, out numValue);
             if (numValue == 1)
             {
                 GotoAuct2.Visible = false;
@@ -27,7 +27,14 @@ namespace auction_proj
             {
                 GotoAuct1.Visible = false;
                 GotoAuct2.Visible = false;
+                AuctionNamesLabel.Visible = false;
+
             }
+
+
+
+
+
         }
 
         protected void backToHome_Click(object sender, EventArgs e)
@@ -37,8 +44,14 @@ namespace auction_proj
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            selectedDateLable.Text = Calendar1.SelectedDate.ToLongDateString();
-
+            selectedDateLabel.Text = Calendar1.SelectedDate.ToLongDateString();
+            // If NumberofAuctLable is empty
+            string s = NumberOfAuctLabel.Text;
+            if (string.IsNullOrEmpty(s))
+            {
+                s = "No Auctions";
+                NumberOfAuctLabel.Text = s;
+            }
         }
 
         protected void GotoAuct2_Click(object sender, EventArgs e)

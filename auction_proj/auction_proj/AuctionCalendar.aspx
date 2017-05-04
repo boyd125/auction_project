@@ -33,7 +33,7 @@
                 <tr>
                     <td class="auto-style2">Selected Date:</td>
                     <td class="auto-style3">
-                        <asp:Label ID="selectedDateLable" runat="server"></asp:Label>
+                        <asp:Label ID="selectedDateLabel" runat="server"></asp:Label>
                     </td>
                     <td>
                         &nbsp;</td>
@@ -41,15 +41,17 @@
                 <tr>
                     <td class="auto-style2">Number of Auctions:</td>
                     <td class="auto-style3">
-                        <asp:Label ID="NumberOfAuctLable" runat="server"></asp:Label>
+                        <asp:Label ID="NumberOfAuctLabel" runat="server"></asp:Label>
                     </td>
                     <td>
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Auction Name&#39;s:</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="AuctionNamesLabel" runat="server" Text="Auction Name's:"></asp:Label>
+                    </td>
                     <td class="auto-style3">
-                        <asp:Label ID="Auct1NameLable" runat="server"></asp:Label>
+                        <asp:Label ID="Auct1NameLabel" runat="server"></asp:Label>
                     </td>
                     <td>
                         <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct1_Click" OnClientClick="AuctionDetailPage.aspx" />
@@ -58,7 +60,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style3">
-                        <asp:Label ID="Auct2NameLable" runat="server"></asp:Label>
+                        <asp:Label ID="Auct2NameLabel" runat="server"></asp:Label>
                     </td>
                     <td>
                         <asp:Button ID="GotoAuct2" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct2_Click" />
