@@ -12,6 +12,9 @@
         .auto-style2 {
             width: 149px;
         }
+        .auto-style3 {
+            width: 192px;
+        }
     </style>
 </head>
 <body>
@@ -29,26 +32,36 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style2">Selected Date:</td>
-                    <td>
+                    <td class="auto-style3">
                         <asp:Label ID="selectedDateLable" runat="server"></asp:Label>
                     </td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Number of Auctions:</td>
-                    <td>
+                    <td class="auto-style3">
                         <asp:Label ID="NumberOfAuctLable" runat="server"></asp:Label>
                     </td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">Auction Name&#39;s:</td>
-                    <td>
+                    <td class="auto-style3">
                         <asp:Label ID="Auct1NameLable" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
-                    <td>
+                    <td class="auto-style3">
                         <asp:Label ID="Auct2NameLable" runat="server"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Button ID="GotoAuct2" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct2_Click" />
                     </td>
                 </tr>
             </table>

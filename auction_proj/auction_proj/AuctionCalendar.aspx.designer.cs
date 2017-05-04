@@ -58,6 +58,15 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label Auct1NameLable;
         
         /// <summary>
+        /// GotoAuct1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GotoAuct1;
+        
+        /// <summary>
         /// Auct2NameLable control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace auction_proj {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Auct2NameLable;
+        
+        /// <summary>
+        /// GotoAuct2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GotoAuct2;
         
         /// <summary>
         /// backToHome control.
