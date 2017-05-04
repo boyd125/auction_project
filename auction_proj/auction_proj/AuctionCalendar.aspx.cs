@@ -16,7 +16,7 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
-// Go to Auction Buttons does not show unless there is an auction 
+// Go to Auction Buttons does not show unless there is an auction on that date
             int numValue;
             bool parsed = Int32.TryParse(Auct1NameLable.Text, out numValue);
             if (numValue == 1)
@@ -43,7 +43,12 @@ namespace auction_proj
 
         protected void GotoAuct2_Click(object sender, EventArgs e)
         {
-          
+            Response.Redirect("~/AuctionDetailPage.aspx");
+        }
+
+        protected void GotoAuct1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AuctionDetailPage.aspx");
         }
     }
 }

@@ -20,7 +20,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-            <asp:Calendar ID="Calendar1" runat="server" style="margin-left: 42px; margin-top: 38px" OnSelectionChanged="Calendar1_SelectionChanged" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" VisibleDate="2017-04-18" Width="350px">
+            <asp:Calendar ID="Calendar1" runat="server" style="margin-left: 42px; margin-top: 38px" OnSelectionChanged="Calendar1_SelectionChanged" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="235px" NextPrevFormat="FullMonth" VisibleDate="2017-05-04" Width="436px">
                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                 <OtherMonthDayStyle ForeColor="#999999" />
@@ -52,7 +52,7 @@
                         <asp:Label ID="Auct1NameLable" runat="server"></asp:Label>
                     </td>
                     <td>
-                        <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" />
+                        <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct1_Click" OnClientClick="AuctionDetailPage.aspx" />
                     </td>
                 </tr>
                 <tr>
