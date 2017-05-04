@@ -26,6 +26,28 @@ namespace auction_proj
             //if they want to show current profile
             //if they want to show edit profile
             //if they want to register a new profile
+            if (whatToDo != 2)
+            {
+                if ((string)Session["loggedIn"] == "false")
+                {
+                    Response.Redirect("~/login.aspx");
+                }
+            }
+            if (!IsPostBack)
+            {
+                if (whatToDo == 0)
+                {
+                    showCurrentProfile();
+                }
+                else if (whatToDo == 1)
+                {
+                    showEditProfile();
+                }
+                /*else if (whatToDo == 2)
+                {
+                    
+                }*/
+            }
 
 
         }
@@ -40,26 +62,28 @@ namespace auction_proj
 
         protected void orgProfSubmit_Click(object sender, EventArgs e)
         {
-            //show current profile
-            //or show edit profile
-            //or register profile
+            
         }
 
         private void showCurrentProfile()
         {
             //change label to current profile
+            editLabel.Text = "  Current Org Profile  ";
             //hide the edit texts
             //update the information
             //attach it to the category labels
             //change the text of the button
+            orgProfSubmit.Text = "Edit";
         }
         private void showEditProfile()
         {
             //change label to edit profile
+            editLabel.Text = "  Edit Org Profile  ";
             //show the edit texts
             //update the labels
             //update the edit box's with the current information
             //change the text of the button
+            orgProfSubmit.Text = "Submit";
         }
         private void showRegisterProfile()
         {

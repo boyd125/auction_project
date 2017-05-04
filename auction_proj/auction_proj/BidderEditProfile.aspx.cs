@@ -138,7 +138,7 @@ namespace auction_proj
 
         public void showEditProfile()
         {
-            editLabel.Text = "  Edit Profile  ";
+            editLabel.Text = "  Edit Bidder Profile  ";
             nameInput.Visible = true;
             nameInput.Text = (string)Session["full_name"];
             nameInputLabel.Text = "Name:";
@@ -165,7 +165,7 @@ namespace auction_proj
         }
         public void showCurrentProfile()
         {
-            editLabel.Text = "  Current Profile  ";
+            editLabel.Text = "  Current Bidder Profile  ";
             //name = nameInput.Text.ToString();
             nameInput.Visible = false;
             nameInputLabel.Text = nameInputLabel.Text.ToString() + (string)Session["full_name"];

@@ -9,6 +9,9 @@ namespace auction_proj
 {
     public partial class Main : System.Web.UI.Page
     {
+        //default value is nope
+        String who = "nope";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string temp = (string)Session["loggedIn"];
@@ -16,13 +19,15 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
-            welcomeTB.Text = "Welcome, " + (string)Session["account_email"];
+            welcomeTB.Text = "Welcome, " + (string)Session["full_name"];
+            who = (string)Session["account_type"];
+
         }
 
         protected void submitToDo_Click(object sender, EventArgs e)
         {
             int idx = toDoDropDown.SelectedIndex;
-            switch(idx)
+            switch (idx)
             {
                 //nothing selected
                 case 0:
@@ -39,15 +44,27 @@ namespace auction_proj
                     break;
                 //view calander
                 case 3:
-                    Response.Redirect("~/AuctionCalendar.aspx");                    
+                    Response.Redirect("~/AuctionCalendar.aspx");
                     break;
                 //my profile
                 case 4:
-                    BidderEditProfile.whatChoice(0);
-                    Response.Redirect("~/BidderEditProfile.aspx");
+                    if (who.Equals("bidder"))
+                    {
+                        BidderEditProfile.whatChoice(0);
+                        Response.Redirect("~/BidderEditProfile.aspx");
+                    }
+                    else if (who.Equals("nope"))
+                    {
+                        //Show a message box that they need to select an account type
+                    }
+                    else if (who.Equals("npo_rep"))
+                    {
+                        OrgProfile.whatChoice(0);
+                        Response.Redirect("~/OrgProfile.aspx");
+                    }
+                        
+
                     break;
-                
-               
             }
             
             
