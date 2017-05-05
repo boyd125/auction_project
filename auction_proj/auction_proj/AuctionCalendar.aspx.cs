@@ -31,10 +31,6 @@ namespace auction_proj
 
             }
 
-
-
-
-
         }
 
         protected void backToHome_Click(object sender, EventArgs e)
