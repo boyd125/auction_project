@@ -21,7 +21,9 @@ namespace auction_proj
             streetInput.Text = (string)Session["street"];
             stateInput.Text = (string)Session["us_state"];
             zipInput.Text = (string)Session["zip"];
+            
             */
+            //accountSelect.Visible = false;
             if (whatToDo != 2)
             {
                 if ((string)Session["loggedIn"] == "false")
@@ -108,13 +110,27 @@ namespace auction_proj
             //just entered register info  
             else if (editProfSubmit.Text.ToString().Equals("Register"))
             {
+                accountSelect.Visible = true;
+                string acc;
+                if(accountSelect.SelectedIndex==0)
+                {
+                    acc = "bidder";
+                }
+                if (accountSelect.SelectedIndex == 1)
+                {
+                    acc = "npo_rep";
+                }
+                if (accountSelect.SelectedIndex == 2)
+                {
+                    acc = "employee";
+                }
                 string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
                     try
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder_All (account_email, account_password, full_name, phone, street, city, us_state, zip) VALUES (@email, @pass, @fname, @phone, @street, @city, @us_state, @zip)", con);
+                        SqlCommand cmd = new SqlCommand(@"INSERT INTO User_All (account_email, account_password, full_name, phone, street, city, us_state, zip) VALUES (@email, @pass, @fname, @phone, @street, @city, @us_state, @zip)", con);
                         cmd.Parameters.AddWithValue("@email", emailInput.Text);
                         cmd.Parameters.AddWithValue("@pass", encrypt.encryptPass(passTB.Text));
                         cmd.Parameters.AddWithValue("@fname", nameInput.Text);
