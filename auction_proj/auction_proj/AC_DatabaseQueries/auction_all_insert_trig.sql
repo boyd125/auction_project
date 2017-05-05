@@ -6,7 +6,7 @@ create trigger auction_all_insert_trig
 		declare @org varchar(50)
 		declare @contact varchar(50)
 		declare @date_time datetime
-		declare @intake varchar(19)
+		declare @intake varchar(50)
 		declare @exp_num_items int
 		declare @comments varchar(500)
 		select * into #ttable from inserted
@@ -29,3 +29,4 @@ create trigger auction_all_insert_trig
 				end
 			end
 		end
+

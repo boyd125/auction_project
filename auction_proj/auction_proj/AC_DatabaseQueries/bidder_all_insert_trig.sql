@@ -38,6 +38,3 @@ create trigger bidder_all_insert_trig
 		end
 	end
 
---test itsert
---insert into Bidder_All values ('new@account.com', 'password', 'New Name', '123-124-1423',
-	--'2345-2534-5324-5243', '2354 St.', 'Town', 'Oblivion', '99999')

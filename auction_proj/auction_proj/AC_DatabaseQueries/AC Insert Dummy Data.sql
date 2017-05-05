@@ -75,9 +75,9 @@ insert into NPO_Rep_Name(rep, full_name)
 
 insert into NPO_Rep_Phone(rep, phone)
 	values
-		('scooby@wwo.org', '(666) 666-6666'),
-		('daphne@unicef.org', '(777) 777-7777'),
-		('fred@redcross.org', '(888) 888-8888')
+		('scooby@wwo.org', '666-666-6666'),
+		('daphne@unicef.org', '777-777-7777'),
+		('fred@redcross.org', '888-888-8888')
 
 insert into Item_Quantity(id, quantity)
 	values
@@ -129,9 +129,9 @@ insert into Bidder_Name(bidder, full_name)
 
 insert into Bidder_Phone(bidder, phone)
 	values
-		('edgeworth@aol.com', '(222) 222-2222'),
-		('aceattorney@gmail.com', '(333) 333-3333'),
-		('mayafey@yahoo.com', '(444) 444-4444')
+		('edgeworth@aol.com', '222-222-2222'),
+		('aceattorney@gmail.com', '333-333-3333'),
+		('mayafey@yahoo.com', '444-444-4444')
 
 insert into Bidder_Payment(bidder, credit_card)
 	values

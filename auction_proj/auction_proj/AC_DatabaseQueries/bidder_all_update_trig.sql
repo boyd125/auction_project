@@ -38,7 +38,6 @@ create trigger bidder_all_update_trig
 						set credit_card = @credit_card where bidder = @account_email
 					update Bidder_Street_Address
 						set street = @street where bidder = @account_email
-					--street set to cascade into Full_Address
 					update Full_Address
 						set city = @city, us_state = @us_state, zip = @zip where street = @street
 					delete from #ttable where account_email = @account_email
