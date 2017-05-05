@@ -44,6 +44,15 @@ namespace auction_proj
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
+            // Pull from database
+            string date;
+            date = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
+            List<string> auctions = dbClass.auction_on_date(date);
+            // Inputs database info to lables
+            NumberOfAuctLabel.Text = auctions.Count.ToString();
+            Auct1NameLabel.Text = auctions.ToString();
+
+
             selectedDateLabel.Text = Calendar1.SelectedDate.ToLongDateString();
             // If NumberofAuctLable is empty
             string s = NumberOfAuctLabel.Text;
