@@ -154,8 +154,6 @@ namespace auction_proj
 
         public void showEditProfile()
         {
-            accountSelect.Visible = false;
-
             editLabel.Text = "  Edit Bidder Profile  ";
             nameInput.Visible = true;
             nameInput.Text = (string)Session["full_name"];
@@ -183,8 +181,6 @@ namespace auction_proj
         }
         public void showCurrentProfile()
         {
-            accountSelect.Visible = false;
-
             editLabel.Text = "  Current Bidder Profile  ";
             //name = nameInput.Text.ToString();
             nameInput.Visible = false;

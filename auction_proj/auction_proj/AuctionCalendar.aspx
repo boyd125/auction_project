@@ -13,7 +13,7 @@
             width: 149px;
         }
         .auto-style3 {
-            width: 192px;
+            width: 268px;
         }
     </style>
 </head>
