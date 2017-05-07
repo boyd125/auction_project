@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Diagnostics;
 
 namespace auction_proj
 {
@@ -79,7 +80,7 @@ namespace auction_proj
                     SqlCommand oCmd = new SqlCommand(oString, conn);
                     using (SqlDataReader oReader = oCmd.ExecuteReader())
                     {
-                        while(oReader.Read())
+                        while (oReader.Read())
                         {
                             auctions.Add(oReader["org"].ToString());
                         }
@@ -87,7 +88,7 @@ namespace auction_proj
                 }
                 return auctions;
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 return auctions;
             }
@@ -148,6 +149,82 @@ namespace auction_proj
             {
                 return auctions;
             }
+        }
+        public static void login(string account_email, string account_password)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    string oString = "";
+                    SqlCommand cmd = new SqlCommand(@"select * from User_All where account_email = @account_email 
+                        and account_password = @account_password", con);
+                    cmd.Parameters.AddWithValue("@account_email", account_email);
+                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                Debug.WriteLine("here");
+                                if (reader["account_type"].ToString() == "bidder")
+                                {
+                                    HttpContext.Current.Session["account_type"] = "bidder";
+                                    oString = "select * from Bidder_All where account_email = @account_email";
+                                }
+
+                                if (reader["account_type"].ToString() == "employee")
+                                {
+                                    HttpContext.Current.Session["account_type"] = "employee";
+                                    oString = "select * from Employee_All where account_email = @account_email";
+                                }
+
+                                if (reader["account_type"].ToString() == "npo_rep")
+                                {
+                                    HttpContext.Current.Session["account_type"] = "npo_rep";
+                                    oString = "select * from NPO_Rep_All where account_email = @account_email";
+                                }
+                            }
+                        }
+                    }
+                    SqlCommand oCmd = new SqlCommand(oString, con);
+                    oCmd.Parameters.AddWithValue("@account_email", account_email);
+                    if (oString.Length > 1)
+                    {
+                        using (SqlDataReader oReader = oCmd.ExecuteReader())
+                        {
+                            while (oReader.Read())
+                            {
+                                HttpContext.Current.Session["account_email"] = oReader["account_email"].ToString();
+                                HttpContext.Current.Session["full_name"] = oReader["full_name"].ToString();
+                                HttpContext.Current.Session["phone"] = oReader["phone"].ToString();
+                                if ((string)HttpContext.Current.Session["account_type"] == "bidder")
+                                {
+                                    HttpContext.Current.Session["street"] = oReader["street"].ToString();
+                                    HttpContext.Current.Session["city"] = oReader["city"].ToString();
+                                    HttpContext.Current.Session["us_state"] = oReader["us_state"].ToString();
+                                    HttpContext.Current.Session["zip"] = oReader["zip"].ToString();
+                                }
+                                if ((string)HttpContext.Current.Session["account_type"] != "employee")
+                                {
+                                    HttpContext.Current.Session["phone"] = oReader["phone"].ToString();
+                                }
+                                HttpContext.Current.Session["loggedIn"]="true";
+                            }
+                        }
+                        HttpContext.Current.Response.Redirect("~/Main.aspx");
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+
         }
     }
 }
