@@ -127,7 +127,7 @@ namespace auction_proj
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
                 {
                     conn.Open();
-                    string oString = "Select org from Auction_All where date_time between " + date + " 00:00:00 and " + date + " 23:59:59";
+                    string oString = "Select org from Auction_All where date_time between " + "'" + date + " 00:00:00' and " + "'" + date + " 23:59:59'";
                     SqlCommand oCmd = new SqlCommand(oString, conn);
                     using (SqlDataReader oReader = oCmd.ExecuteReader())
                     {
