@@ -15,15 +15,15 @@
         <br />
         <asp:Label ID="auctOrg" runat="server" Text="Organization: "></asp:Label>
         <br />
-        <asp:Label ID="auctLocation" runat="server" Text="Location: "></asp:Label>
+        <asp:Label ID="auctContact" runat="server" Text="Contact: "></asp:Label>
         <br />
-        <asp:Label ID="auctDate" runat="server" Text="Date: "></asp:Label>
+        <asp:Label ID="auctDate" runat="server" Text="Date & Time: "></asp:Label>
         <br />
-        <asp:Label ID="auctTime" runat="server" Text="Time: "></asp:Label>
-        <br />
+        <asp:Label ID="auctIntake" runat="server" Text="Intake: "></asp:Label> 
+        <br />     
         <asp:Label ID="auctNumItems" runat="server" Text="Items: "></asp:Label>
         <br />
-        <asp:Label ID="auctNumBidders" runat="server" Text="Number Of Bidders: "></asp:Label>
+        <asp:Label ID="auctComments" runat="server" Text="Comments: "></asp:Label>
         <br />
         <br />
         <asp:Button ID="backButt" runat="server" Text="Back To Browse" OnClick="backButt_Click" />

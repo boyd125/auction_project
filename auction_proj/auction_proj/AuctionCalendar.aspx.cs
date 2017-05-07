@@ -83,11 +83,13 @@ namespace auction_proj
 
         protected void GotoAuct2_Click(object sender, EventArgs e)
         {
+            AuctionDetailPage.setAuction(Auct2NameLabel.Text.ToString());
             Response.Redirect("~/AuctionDetailPage.aspx");
         }
 
         protected void GotoAuct1_Click(object sender, EventArgs e)
         {
+            AuctionDetailPage.setAuction(Auct1NameLabel.Text.ToString());
             Response.Redirect("~/AuctionDetailPage.aspx");
         }
     }
