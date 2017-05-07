@@ -44,12 +44,13 @@ namespace auction_proj
             string date;
             date = Calendar1.SelectedDate.ToString("MM/dd/yyyy");
             List<string> auctions = dbClass.auction_on_date(date);
-            // Inputs database info to lables
+            // Inputs database info to labels
             NumberOfAuctLabel.Text = auctions.Count.ToString();
             Auct1NameLabel.Text = auctions.ToString();
 
-
+            // shows slected date
             selectedDateLabel.Text = Calendar1.SelectedDate.ToLongDateString();
+           
             // If NumberofAuctLable is empty
             string s = NumberOfAuctLabel.Text;
             if (string.IsNullOrEmpty(s))
