@@ -22,9 +22,8 @@ namespace auction_proj
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            // In a using statement, acquire the SqlConnection as a resource.
-            //
-
+            dbClass.login(TextBox1.Text, TextBox2.Text);
+            /*
             string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(conStr))
             {
@@ -81,6 +80,7 @@ namespace auction_proj
                     Label3.Text = ("Unexpected error:" + ex.Message);
                 }
             }
+            */
         }
 
         protected void Button3_Click(object sender, EventArgs e)
