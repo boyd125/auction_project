@@ -38,16 +38,25 @@ namespace auction_proj
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
         }
 
         protected void buttonClick(object sender, EventArgs e)
         {
-            index = ListBox1.Text;
+            if( !ListBox1.SelectedIndex.Equals(-1))
+            {
+                int index = ListBox1.SelectedIndex;
+                string name = ListBox1.Items[index].Text;
+                AuctionDetailPage.setAuction(name);
+
+            }
+
+            /*index = ListBox1.Text;
            if(index != "")
             {
                 AuctionDetailPage.setAuction(index);
                 Response.Redirect("~/AuctionDetailPage.aspx");
-            }
+            }*/
            
         }
         public static void setMyOrBrowseAuctions(int num)

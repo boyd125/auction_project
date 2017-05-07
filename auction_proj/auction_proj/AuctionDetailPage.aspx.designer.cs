@@ -40,13 +40,13 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label auctOrg;
         
         /// <summary>
-        /// auctLocation control.
+        /// auctContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label auctLocation;
+        protected global::System.Web.UI.WebControls.Label auctContact;
         
         /// <summary>
         /// auctDate control.
@@ -58,13 +58,13 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label auctDate;
         
         /// <summary>
-        /// auctTime control.
+        /// auctIntake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label auctTime;
+        protected global::System.Web.UI.WebControls.Label auctIntake;
         
         /// <summary>
         /// auctNumItems control.
@@ -76,13 +76,13 @@ namespace auction_proj {
         protected global::System.Web.UI.WebControls.Label auctNumItems;
         
         /// <summary>
-        /// auctNumBidders control.
+        /// auctComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label auctNumBidders;
+        protected global::System.Web.UI.WebControls.Label auctComments;
         
         /// <summary>
         /// backButt control.

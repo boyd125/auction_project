@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Diagnostics;
@@ -101,22 +102,26 @@ namespace auction_proj
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
                 {
                     conn.Open();
-                    string oString = "Select * from Auction_All where org = " + auction_org;
+                    string oString = "Select * from Auction_All where org = "+ "'" + auction_org + "'";
                     SqlCommand oCmd = new SqlCommand(oString, conn);
                     using (SqlDataReader oReader = oCmd.ExecuteReader())
                     {
-                        info.Add(oReader["org"].ToString());
-                        info.Add(oReader["contact"].ToString());
-                        info.Add(oReader["date_time"].ToString());
-                        info.Add(oReader["intake"].ToString());
-                        info.Add(oReader["exp_num_items"].ToString());
-                        info.Add(oReader["comments"].ToString());
+                        while (oReader.Read())
+                        {
+                            info.Add(oReader["org"].ToString());
+                            info.Add(oReader["contact"].ToString());
+                            info.Add(oReader["date_time"].ToString());
+                            info.Add(oReader["intake"].ToString());
+                            info.Add(oReader["exp_num_items"].ToString());
+                            info.Add(oReader["comments"].ToString());
+                        }
                     }
                 }
                 return info;
             }
             catch (SqlException ex)
             {
+                Debug.WriteLine(ex);
                 return info;
             }
         }
