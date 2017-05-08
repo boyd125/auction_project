@@ -54,7 +54,7 @@
                         <asp:Label ID="Auct1NameLabel" runat="server"></asp:Label>
                     </td>
                     <td>
-                        <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct1_Click" OnClientClick="AuctionDetailPage.aspx" />
+                        <asp:Button ID="GotoAuct1" runat="server" BackColor="#FFFFCC" Text="Go to Auction" OnClick="GotoAuct1_Click" />
                     </td>
                 </tr>
                 <tr>
