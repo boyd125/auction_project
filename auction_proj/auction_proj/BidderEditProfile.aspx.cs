@@ -130,7 +130,7 @@ namespace auction_proj
                     try
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"INSERT INTO User_All (account_email, account_password, full_name, phone, street, city, us_state, zip) VALUES (@email, @pass, @fname, @phone, @street, @city, @us_state, @zip)", con);
+                        SqlCommand cmd = new SqlCommand(@"INSERT INTO Bidder_All (account_email, account_password, full_name, phone, street, city, us_state, zip) VALUES (@email, @pass, @fname, @phone, @street, @city, @us_state, @zip)", con);
                         cmd.Parameters.AddWithValue("@email", emailInput.Text);
                         cmd.Parameters.AddWithValue("@pass", encrypt.encryptPass(passTB.Text));
                         cmd.Parameters.AddWithValue("@fname", nameInput.Text);
