@@ -102,7 +102,7 @@ namespace auction_proj
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString))
                 {
                     conn.Open();
-                    string oString = "Select * from Auction_All where org = "+ "'" + auction_org + "'";
+                    string oString = "Select * from Auction_All where org = " + "'" + auction_org + "'";
                     SqlCommand oCmd = new SqlCommand(oString, conn);
                     using (SqlDataReader oReader = oCmd.ExecuteReader())
                     {
@@ -212,7 +212,7 @@ namespace auction_proj
                                 {
                                     HttpContext.Current.Session["phone"] = oReader["phone"].ToString();
                                 }
-                                HttpContext.Current.Session["loggedIn"]="true";
+                                HttpContext.Current.Session["loggedIn"] = "true";
                             }
                         }
                         HttpContext.Current.Response.Redirect("~/Main.aspx");
@@ -225,6 +225,85 @@ namespace auction_proj
                 }
             }
 
+        }
+
+        public static void register_employee(string account_email, string account_password, string full_name)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into Employee_All_View values (@account_email,
+                        @account_password, @full_name)");
+                    cmd.Parameters.AddWithValue("@account_email", account_email);
+                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    cmd.Parameters.AddWithValue("@full_name", full_name);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+
+        }
+
+        public static void register_npo_rep(string account_email, string account_password, string full_name, string phone)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into NPO_Rep_All_View values (@account_email,
+                        @account_password, @full_name, @phone)");
+                    cmd.Parameters.AddWithValue("@account_email", account_email);
+                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    cmd.Parameters.AddWithValue("@full_name", full_name);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
+        public static void register_bidder(string account_email, string account_password, string full_name, string phone,
+            string street, string city, string us_state, string zip)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into Bidder_All_View values (@account_email,
+                        @account_password, @full_name, @phone, @street, @city, @us_state, @zip)");
+                    cmd.Parameters.AddWithValue("@account_email", account_email);
+                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    cmd.Parameters.AddWithValue("@full_name", full_name);
+                    cmd.Parameters.AddWithValue("@street", street);
+                    cmd.Parameters.AddWithValue("@city", city);
+                    cmd.Parameters.AddWithValue("@us_state", us_state);
+                    cmd.Parameters.AddWithValue("@zip", zip);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
     }
 }
