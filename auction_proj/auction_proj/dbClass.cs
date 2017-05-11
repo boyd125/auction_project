@@ -305,6 +305,118 @@ namespace auction_proj
                 }
             }
         }
+
+        public static List<string[]> all_items()
+        {
+            List<string[]> items = new List<string[]>();
+
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select auction, item_name, id from Item_All");
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                string[] item = new string[3];
+                                item[0] = reader["auction"].ToString();
+                                item[1] = reader["item_name"].ToString();
+                                item[2] = reader["id"].ToString();
+                                items.Add(item);
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return items;
+        }
+
+        public static List<string[]> auction_items(string org)
+        {
+            List<string[]> items = new List<string[]>();
+
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select auction, item_name, id from Item_All where auction = @auction");
+                    cmd.Parameters.AddWithValue("@auction", org);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                string[] item = new string[3];
+                                item[0] = reader["auction"].ToString();
+                                item[1] = reader["item_name"].ToString();
+                                item[2] = reader["id"].ToString();
+                                items.Add(item);
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return items;
+        }
+
+        public static List<string> item_info(string id)
+        {
+            List<string> item_info = new List<string>();
+
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select * from Item_All where id = @id");
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                item_info.Add(reader["item_name"].ToString());
+                                item_info.Add(reader["auction"].ToString());
+                                item_info.Add(reader["id"].ToString());
+                                item_info.Add(reader["quantity"].ToString());
+                                item_info.Add(reader["start_bid"].ToString());
+                                item_info.Add(reader["donor"].ToString());
+                                item_info.Add(reader["sell_price"].ToString());
+                                item_info.Add(reader["condition"].ToString());
+                                item_info.Add(reader["comments"].ToString());
+                                item_info.Add(reader["photo"].ToString());
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return item_info;
+        }
     }
 }
 //update user with session variables
