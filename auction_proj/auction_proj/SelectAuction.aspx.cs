@@ -28,7 +28,7 @@ namespace auction_proj
             }
             this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             //clear list box 1
-            ListBox1.Items.Clear();
+            //ListBox1.Items.Clear();
             List<string> auctions = dbClass.all_auctions();
             foreach(string auction in auctions)
             {
@@ -50,13 +50,6 @@ namespace auction_proj
                 AuctionDetailPage.setAuction(name);
                 Response.Redirect("~/AuctionDetailPage.aspx");
             }
-
-            /*index = ListBox1.Text;
-           if(index != "")
-            {
-                AuctionDetailPage.setAuction(index);
-                Response.Redirect("~/AuctionDetailPage.aspx");
-            }*/
            
         }
         public static void setMyOrBrowseAuctions(int num)
