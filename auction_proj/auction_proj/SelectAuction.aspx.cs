@@ -27,8 +27,7 @@ namespace auction_proj
                 Label1.Text = "My Auctions";
             }
             this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
-            //clear list box 1
-            //ListBox1.Items.Clear();
+            
             List<string> auctions = dbClass.all_auctions();
             foreach(string auction in auctions)
             {
