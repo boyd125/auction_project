@@ -22,6 +22,7 @@
             <br />
             <br />
              <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
+            <asp:Button ID="Calendar" runat="server" OnClick="Calendar_Click" Text="View Calendar" />
         </div>
     </form>
 </body>

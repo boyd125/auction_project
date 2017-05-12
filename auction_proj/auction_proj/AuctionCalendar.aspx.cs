@@ -92,5 +92,10 @@ namespace auction_proj
             AuctionDetailPage.setAuction(Auct1NameLabel.Text.ToString());
             Response.Redirect("~/AuctionDetailPage.aspx");
         }
+
+        protected void ViewAll_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SelectAuction.aspx");
+        }
     }
 }

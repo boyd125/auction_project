@@ -71,6 +71,8 @@
         <br />
         <asp:Button ID="backToHome" runat="server"  Text="Back To Home" OnClick="backToHome_Click"  style="margin-left: 42px; margin-top: 0px" />
 
+            <asp:Button ID="ViewAll" runat="server" OnClick="ViewAll_Click" Text="View All Auctions" />
+
     </div>
         <p>
             &nbsp;</p>

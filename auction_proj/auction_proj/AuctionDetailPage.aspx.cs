@@ -14,6 +14,11 @@ namespace auction_proj
         private static String currentAuction;
         private String date, org, numItems, contact, intake, comments;
 
+        protected void Calendar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AuctionCalendar.aspx");
+        }
+
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string item = ListBox1.SelectedValue;

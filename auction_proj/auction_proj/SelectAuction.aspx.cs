@@ -72,5 +72,10 @@ namespace auction_proj
         {
             Response.Redirect("~/Main.aspx");
         }
+
+        protected void Calendar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AuctionCalendar.aspx");
+        }
     }
 }

@@ -38,6 +38,7 @@
         <br />
         <br />
         <asp:Button ID="backButt" runat="server" Text="Back To Browse" OnClick="backButt_Click" />
+        <asp:Button ID="Calendar" runat="server" OnClick="Calendar_Click" Text="View Calendar" />
         <br />
         <br />
          <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
