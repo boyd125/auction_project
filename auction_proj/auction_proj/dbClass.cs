@@ -239,7 +239,7 @@ namespace auction_proj
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"insert into Employee_All_View values (@account_email,
-                        @account_password, @full_name)");
+                        @account_password, @full_name)", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
                     cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
                     cmd.Parameters.AddWithValue("@full_name", full_name);
@@ -264,7 +264,7 @@ namespace auction_proj
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"insert into NPO_Rep_All_View values (@account_email,
-                        @account_password, @full_name, @phone)");
+                        @account_password, @full_name, @phone)", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
                     cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
                     cmd.Parameters.AddWithValue("@full_name", full_name);
@@ -290,7 +290,7 @@ namespace auction_proj
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"insert into Bidder_All_View values (@account_email,
-                        @account_password, @full_name, @phone, @street, @city, @us_state, @zip)");
+                        @account_password, @full_name, @phone, @street, @city, @us_state, @zip)", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
                     cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
                     cmd.Parameters.AddWithValue("@full_name", full_name);
@@ -319,7 +319,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select auction, item_name, id from Item_All");
+                    SqlCommand cmd = new SqlCommand("select auction, item_name, id from Item_All", con);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -388,7 +388,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select * from Item_All where id = @id");
+                    SqlCommand cmd = new SqlCommand("select * from Item_All where id = @id", con);
                     cmd.Parameters.AddWithValue("@id", id);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
