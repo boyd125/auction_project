@@ -85,6 +85,7 @@ namespace auction_proj
                             auctions.Add(oReader["org"].ToString());
                         }
                     }
+                    conn.Close();
                 }
                 return auctions;
             }
@@ -116,6 +117,7 @@ namespace auction_proj
                             info.Add(oReader["comments"].ToString());
                         }
                     }
+                    conn.Close();
                 }
                 return info;
             }
@@ -142,6 +144,7 @@ namespace auction_proj
                             auctions.Add(oReader["org"].ToString());
                         }
                     }
+                    conn.Close();
                 }
                 return auctions;
             }
@@ -331,6 +334,7 @@ namespace auction_proj
                             }
                         }
                     }
+                    con.Close();
                 }
 
                 catch (Exception ex)
@@ -341,9 +345,9 @@ namespace auction_proj
             return items;
         }
 
-        public static List<string[]> auction_items(string org)
+        public static List<string> auction_items(string org)
         {
-            List<string[]> items = new List<string[]>();
+            List<string> items = new List<string>();
 
             string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(conStr))
@@ -351,7 +355,7 @@ namespace auction_proj
                 try
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select auction, item_name, id from Item_All where auction = @auction");
+                    SqlCommand cmd = new SqlCommand("select item_name from Item_All where auction = @auction", con);
                     cmd.Parameters.AddWithValue("@auction", org);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -359,14 +363,11 @@ namespace auction_proj
                         {
                             if (reader.HasRows)
                             {
-                                string[] item = new string[3];
-                                item[0] = reader["auction"].ToString();
-                                item[1] = reader["item_name"].ToString();
-                                item[2] = reader["id"].ToString();
-                                items.Add(item);
+                                items.Add(reader["item_name"].ToString());
                             }
                         }
                     }
+                    con.Close();
                 }
 
                 catch (Exception ex)
@@ -408,6 +409,7 @@ namespace auction_proj
                             }
                         }
                     }
+                    con.Close();
                 }
 
                 catch (Exception ex)

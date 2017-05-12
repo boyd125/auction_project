@@ -48,7 +48,7 @@ namespace auction_proj
                 int index = ListBox1.SelectedIndex;
                 string name = ListBox1.Items[index].Text;
                 AuctionDetailPage.setAuction(name);
-
+                Response.Redirect("~/AuctionDetailPage.aspx");
             }
 
             /*index = ListBox1.Text;

@@ -26,6 +26,17 @@
         <asp:Label ID="auctComments" runat="server" Text="Comments: "></asp:Label>
         <br />
         <br />
+        <br />
+        <br />
+        <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <asp:Button ID="backButt" runat="server" Text="Back To Browse" OnClick="backButt_Click" />
         <br />
         <br />

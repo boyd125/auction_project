@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 
 namespace auction_proj
 {
@@ -12,6 +13,12 @@ namespace auction_proj
     {
         private static String currentAuction;
         private String date, org, numItems, contact, intake, comments;
+
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string item = ListBox1.SelectedValue;
+            Label1.Text = item;
+        }
 
         protected void backToHome_Click(object sender, EventArgs e)
         {
@@ -30,7 +37,7 @@ namespace auction_proj
                 Response.Redirect("~/login.aspx");
             }
             auctName.Text = currentAuction + " Details";
-
+            currentAuction = "Red Cross";
             //get the auction information from database
             List<string> info = dbClass.auction_info(currentAuction);
 
@@ -43,8 +50,12 @@ namespace auction_proj
                 numItems = info[4];
                 comments = info[5];
             }
-
-           
+            foreach (string i in dbClass.auction_items(currentAuction))
+            {
+                ListBox1.Items.Add(i);
+                //Debug.WriteLine(i);
+            }
+               
 
             /*org = "Chapman University";
             location = "1 University Dr \n Orange, CA \n 92868";
