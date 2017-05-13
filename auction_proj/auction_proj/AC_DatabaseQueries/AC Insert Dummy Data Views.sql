@@ -5,7 +5,13 @@ insert into Employee_All values ('amy@auctioncentral.com', 'awesomeamy', 'Amy Ad
 
 insert into NPO_Rep_All values ('carl@toysfortots.org', 'tottoys', 'Carl Evans', '354-435-6754')
 
-insert into Auction_All values ('Toys For Tots', 'carl@toysfortots.org', '05/05/2017 13:00:00', 'amy@auctioncentral.com', 
+insert into Auction_All values ('Toys For Tots', 'carl@toysfortots.org', '05/06/2017 13:00:00', 'amy@auctioncentral.com', 
+		20, 'Gonna be a lot of toys')
+
+insert into Auction_All values ('Toys For Teens', 'carl@toysfortots.org', '05/06/2017 16:00:00', 'amy@auctioncentral.com', 
+		20, 'Gonna be a lot of toys')
+
+insert into Auction_All values ('Toys For Toddlers', 'carl@toysfortots.org', '05/06/2017 06:00:00', 'amy@auctioncentral.com', 
 		20, 'Gonna be a lot of toys')
 
 insert into Item_All (item_name, auction, quantity, start_bid, donor, sell_price, condition, comments, photo)

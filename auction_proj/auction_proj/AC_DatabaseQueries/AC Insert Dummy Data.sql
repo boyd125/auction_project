@@ -158,4 +158,18 @@ insert into Bid(bidder, auction, item, bid)
 		('mayafey@yahoo.com', 'Red Cross', 0003, 20.00)
 
 
+--insert into Bid(bidder, auction, item, bid)
+--	values ('aceattorney@gmail.com', 'Toys For Tots', 4092, 30.00)
+
+--insert into Auction_Org
+--	values ('blah1'), ('blah2'), ('blah3'), ('blah4'), ('blah5')
+
+--insert into Auction_Date_Time
+--	values 
+--		('blah1', '05/01/2017 13:00:00'),
+--		('blah2', '05/02/2017 13:00:00'),
+--		('blah3', '05/03/2017 13:00:00'),
+--		('blah4', '05/04/2017 13:00:00'),
+--		('blah5', '05/05/2017 13:00:00')
+
 
