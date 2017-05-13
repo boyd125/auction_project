@@ -173,3 +173,7 @@ create table Bid(
 
 
 --select org from Auction_Contact where contact = 'email'
+
+--select org from Auction_All where date_time between '03/03/2017 00:00:00:000' and '03/03/2017 23:59:59:999'
+
+select * from Auction_All where org = 'Red Cross'
