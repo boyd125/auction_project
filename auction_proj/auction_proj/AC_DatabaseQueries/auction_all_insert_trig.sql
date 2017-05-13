@@ -1,4 +1,4 @@
-create trigger auction_all_insert_trig
+alter trigger auction_all_insert_trig
 	on Auction_All
 	instead of insert
 	as
