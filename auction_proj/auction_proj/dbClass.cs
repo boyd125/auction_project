@@ -419,6 +419,57 @@ namespace auction_proj
             }
             return item_info;
         }
+
+        public static string[] item_bid_info(string item_name, string org)
+        {
+            int id = 0;
+            string[] item_bid_info = new string[2];
+
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            { 
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"select id from Item_All where item_name = @item_name
+                        and auction = @auction", con);
+                    cmd.Parameters.AddWithValue("@item_name", item_name);
+                    cmd.Parameters.AddWithValue("@auction", org);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read() && reader.HasRows)
+                        {
+                            id = Int32.Parse(reader["id"].ToString());
+                        }
+                    }
+                    //con.Close();
+
+                    //con.Open();
+                    cmd = new SqlCommand(@"select Item_All.start_bid, Bid_Max.bid as highest_bid from Item_All, 
+                        (select max(bid) as bid from Bid group by item having item = id) as Bid_Max 
+                        where Item_All.id = id", con);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader.HasRows)
+                            {
+                                item_bid_info[0] = reader["start_bid"].ToString();
+                                item_bid_info[1] = reader["highest_bid"].ToString();
+                            }
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return item_bid_info;
+        }
     }
 }
 //update user with session variables
