@@ -70,6 +70,7 @@
         <asp:TextBox ID="nameInput" runat="server" Width="154px" ></asp:TextBox>
                 </td>
                 <td class="auto-style4">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emailInput" ErrorMessage="Must input Email" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
