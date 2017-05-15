@@ -12,13 +12,23 @@
     
         <br />
         <br />
-        <asp:Label ID="Label1" runat="server" Font-Size="15pt" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Size="15pt" Text="My Bids"></asp:Label>
     
     </div>
         <div style="margin-left: 40px">
             <br />
-            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
         </div>
+      <asp:gridview id="GridView1" 
+        autogeneratecolumns="true"
+        emptydatatext="No data available." 
+        runat="server">
+        <columns>
+          <asp:boundfield datafield="auction" headertext="Organization"/>
+          <asp:boundfield datafield="item" headertext="Item Name"/>
+          <asp:boundfield datafield="bid" headertext="Bid Amount"/>
+        </columns>
+
+      </asp:gridview>
     </form>
 </body>
 </html>

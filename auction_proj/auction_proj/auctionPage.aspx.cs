@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,13 +17,22 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
-            Label1.Text = SelectAuction.index + " Auction Page";
-            if (SelectAuction.index == "WWO")
-                ListBox1.Items.Add("Faux Fur Coat");
-            if (SelectAuction.index == "UNICEF")
-                ListBox1.Items.Add("Finger Painting");
-            if (SelectAuction.index == "Red Cross")
-                ListBox1.Items.Add("Bandages");
+            if (!Page.IsPostBack)
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
+                conn.Open();
+                string strSQL = "Select [auction], [item], [bid] From [Bid] where bidder=@user";
+                SqlCommand scmd = new SqlCommand(strSQL, conn);
+                scmd.Parameters.AddWithValue("@user", HttpContext.Current.Session["account_email"]);
+                SqlDataReader reader = scmd.ExecuteReader();
+                GridView1.DataSource = reader;
+                GridView1.DataBind();
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
