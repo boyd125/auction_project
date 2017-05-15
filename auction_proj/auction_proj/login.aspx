@@ -40,12 +40,11 @@
                    <asp:TextBox ID="TextBox1" runat="server" Width="175px"></asp:TextBox>
                     </td>
                     <td class="auto-style4">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Please enter login Email" ForeColor="#66CCFF"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
 
                     <td class="auto-style6">
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                    </td>
+                        &nbsp;</td>
 
                 </tr>
                 <tr>

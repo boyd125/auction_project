@@ -176,6 +176,7 @@ namespace auction_proj
             zipInput.Visible = true;
             zipInput.Text = (string)Session["zip"];
             zipLabel.Text = "Zip:";
+            accountSelect.Visible = false;
 
             editProfSubmit.Text = "Submit";
         }
@@ -203,6 +204,8 @@ namespace auction_proj
             zipInput.Visible = false;
             //zip = zipInput.Text.ToString();
             zipLabel.Text = zipLabel.Text.ToString() + (string)Session["zip"];
+
+            accountSelect.Visible = false;
 
             editProfSubmit.Text = "Edit";
         }

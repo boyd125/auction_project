@@ -470,6 +470,62 @@ namespace auction_proj
             }
             return item_bid_info;
         }
+
+        public static void insert_bid(string account_email, string org, string item_id, float bid)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into Bid values (@bidder, @auction, @item, @bid)", con);
+                    cmd.Parameters.AddWithValue("@bidder", account_email);
+                    cmd.Parameters.AddWithValue("@auction", org);
+                    cmd.Parameters.AddWithValue("@item", item_id);
+                    cmd.Parameters.AddWithValue("@bid", bid.ToString());
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
+        public static string get_item_id(string item_name, string org)
+        {
+            string id = "";
+
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"select id from Item_Auction_ID where item_name = @item_name
+                        and org = @org", con);
+                    cmd.Parameters.AddWithValue("@item_name", item_name);
+                    cmd.Parameters.AddWithValue("@org", org);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read() && reader.HasRows)
+                        {
+                                id = reader["id"].ToString();
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return id;
+        }
     }
 }
 //update user with session variables
