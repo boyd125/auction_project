@@ -12,6 +12,7 @@ namespace auction_proj
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // hides got to auction info if there is no auction avalible 
             GotoAuct1.Visible = false;
             GotoAuct2.Visible = false;
             AuctionNamesLabel.Visible = false;
