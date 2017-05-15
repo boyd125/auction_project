@@ -18,16 +18,9 @@
         <div style="margin-left: 40px">
             <br />
         </div>
-      <asp:gridview id="GridView1" 
-        autogeneratecolumns="False"
+      <asp:gridview id="GridView1"
         emptydatatext="No data available." 
         runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
-        <columns>
-          <asp:boundfield datafield="auction" headertext="Organization"/>
-          <asp:boundfield datafield="item" headertext="Item ID"/>
-            <asp:BoundField DataField="item_name" HeaderText="Item Name" SortExpression="item_name" />
-          <asp:boundfield datafield="bid" headertext="Bid Amount"/>
-        </columns>
 
       </asp:gridview>
         <p>

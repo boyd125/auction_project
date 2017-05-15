@@ -165,7 +165,7 @@ namespace auction_proj
                     SqlCommand cmd = new SqlCommand(@"select * from User_All where account_email = @account_email 
                         and account_password = @account_password", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
-                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    cmd.Parameters.AddWithValue("@account_password", account_password);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -203,6 +203,7 @@ namespace auction_proj
                             {
                                 HttpContext.Current.Session["account_email"] = oReader["account_email"].ToString();
                                 HttpContext.Current.Session["full_name"] = oReader["full_name"].ToString();
+                                HttpContext.Current.Session["phone"] = oReader["phone"].ToString();
                                 if ((string)HttpContext.Current.Session["account_type"] == "bidder")
                                 {
                                     HttpContext.Current.Session["street"] = oReader["street"].ToString();
@@ -527,6 +528,9 @@ namespace auction_proj
             }
             return id;
         }
+
+        
+
     }
 }
 //update user with session variables
