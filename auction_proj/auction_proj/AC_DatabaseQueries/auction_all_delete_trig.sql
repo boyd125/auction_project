@@ -1,6 +1,6 @@
 --also delete rep info
 
-alter trigger auction_all_delete_trig
+create trigger auction_all_delete_trig
 	on Auction_All
 	instead of delete
 	as
