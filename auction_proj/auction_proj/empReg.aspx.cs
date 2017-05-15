@@ -69,7 +69,7 @@ namespace auction_proj
                             cmd.Parameters.AddWithValue("@fname", nameInput.Text);
                             cmd.ExecuteNonQuery();
                             con.Close();
-                            Response.Redirect("~/main.aspx");
+                            Response.Redirect("~/Main.aspx");
                         }
                         catch (Exception ex)
                         {
@@ -77,7 +77,7 @@ namespace auction_proj
                         }
                     }
                 
-                //TODO record data
+                
             }
         }
 

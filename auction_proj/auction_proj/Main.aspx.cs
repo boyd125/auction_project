@@ -67,6 +67,11 @@ namespace auction_proj
                         OrgProfile.whatChoice(0);
                         Response.Redirect("~/OrgProfile.aspx");
                     }
+                    else if (who.Equals("employee"))
+                    {
+                        BidderEditProfile.whatChoice(0);
+                        Response.Redirect("~/BidderEditProfile.aspx");
+                    }
                         
 
                     break;

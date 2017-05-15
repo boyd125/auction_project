@@ -13,6 +13,7 @@ namespace auction_proj
     public partial class BidderEditProfile : System.Web.UI.Page
     {
         public static int whatToDo = -1;
+        public string who;
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
@@ -45,6 +46,7 @@ namespace auction_proj
                     showRegProfile();
                 }
             }
+           who = (string)Session["account_type"];
 
         }
         public static void whatChoice(int choice)
@@ -140,7 +142,10 @@ namespace auction_proj
 
         public void showEditProfile()
         {
-            editLabel.Text = "  Edit Bidder Profile  ";
+            if(who.Equals("bidder"))
+                editLabel.Text = "  Edit Bidder Profile  ";
+            else if(who.Equals("employee"))
+                editLabel.Text = "  Edit Employee Profile  ";
             nameInput.Visible = true;
             nameInput.Text = (string)Session["full_name"];
             nameInputLabel.Text = "Name:";
@@ -166,7 +171,10 @@ namespace auction_proj
         }
         public void showCurrentProfile()
         {
-            editLabel.Text = "  Current Bidder Profile  ";
+            if(who.Equals("bidder"))
+                editLabel.Text = "  Current Bidder Profile  ";
+            else if(who.Equals("employee"))
+                editLabel.Text = "  Current Employee Profile  ";
             //name = nameInput.Text.ToString();
             nameInput.Visible = false;
             nameInputLabel.Text = nameInputLabel.Text.ToString() + (string)Session["full_name"];
