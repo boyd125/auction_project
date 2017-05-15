@@ -21,7 +21,7 @@
       <asp:gridview id="GridView1" 
         autogeneratecolumns="true"
         emptydatatext="No data available." 
-        runat="server">
+        runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
         <columns>
           <asp:boundfield datafield="auction" headertext="Organization"/>
           <asp:boundfield datafield="item" headertext="Item Name"/>

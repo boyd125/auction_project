@@ -65,7 +65,9 @@ namespace auction_proj
             auctContact.Text = "Contact: " + contact;
             auctDate.Text = "Date & Time: " + date;
             auctIntake.Text = "Intake: " + intake;
-            auctComments.Text = "Comments: " + comments;  
+            auctComments.Text = "Comments: " + comments;
+            viewBids.Visible = false;
+
         }
 
         protected void Calendar_Click(object sender, EventArgs e)
@@ -76,6 +78,11 @@ namespace auction_proj
         protected void bidInput_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void viewBids_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/auctionPage.aspx");
         }
 
         protected void bidOnItemButton_Click(object sender, EventArgs e)
@@ -89,6 +96,7 @@ namespace auction_proj
                 string name = itemsListBox.Items[index].Text;
                 itemLabel.Text = name;
                 itemLabel.Visible = true;
+                startingPrice.Text = "Starting Price: $100.00";
                 startingPrice.Visible = true;
                 pLabel.Visible = true;
                 bidInput.Visible = true;
@@ -106,8 +114,30 @@ namespace auction_proj
 
         protected void confirmPaymentButton_Click(object sender, EventArgs e)
         {
-            dbClass.insert_bid((string)HttpContext.Current.Session["account_email"], org, dbClass.get_item_id(itemsListBox.Items[itemsListBox.SelectedIndex].Text, org), int.Parse(bidInput.Text));
-            Response.Redirect("~/auctionPage.aspx");
+            double bid;
+            bool result = Double.TryParse(bidInput.Text, out bid);
+            if(!result || bid == 0)
+            {
+                notValidLabel.Text = "Input must be greater than 0 and must be a number.";
+                notValidLabel.Visible = true;
+            }
+            else
+            {
+                //send bid to database
+                dbClass.insert_bid((string)HttpContext.Current.Session["account_email"], org, dbClass.get_item_id(itemsListBox.Items[itemsListBox.SelectedIndex].Text, org), int.Parse(bidInput.Text));
+                notValidLabel.Visible = false;
+
+                currentBidderName.Visible = false;
+                itemLabel.Visible = false;
+                startingPrice.Text = "Your bid has been recorded.";
+                startingPrice.Visible = true;
+                pLabel.Visible = false;
+                bidInput.Visible = false;
+                bidInput.Text = "0";
+                confirmPaymentButton.Visible = false;
+                viewBids.Visible = true;
+            }
+            
         }
 
         protected void backToHome_Click(object sender, EventArgs e)

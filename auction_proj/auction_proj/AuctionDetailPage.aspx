@@ -15,6 +15,9 @@
         .auto-style3 {
             width: 72px;
         }
+        .auto-style4 {
+            width: 261px;
+        }
     </style>
 </head>
 <body>
@@ -41,9 +44,11 @@
         <asp:Label ID="itemsLabel" runat="server" Text="Items Available To Bid"></asp:Label>
                 </td>
                 <td class="auto-style3">&nbsp;</td>
-                <td>
+                <td class="auto-style4">
                     <asp:Label ID="currentBidderName" Visible="false"  runat="server" Text="Bidder Name"></asp:Label>
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
@@ -52,7 +57,7 @@
                 <td class="auto-style3">
         <asp:Button ID="bidOnItemButton" Text="Bid" runat="server" BackColor="#FFFFCC" OnClick="bidOnItemButton_Click" />
                 </td>
-                <td>
+                <td class="auto-style4">
                     <asp:Label ID="itemLabel" Visible="false" runat="server" Text="Item"></asp:Label>
                     <br />
                     <asp:Label ID="startingPrice" Visible="false" runat="server" Text="Starting Price: $100.00"></asp:Label>
@@ -60,15 +65,22 @@
                     <br />
                      <asp:Label ID="pLabel" Visible="false" runat="server" Text="Your Bid: $ "></asp:Label>
                     <asp:TextBox ID="bidInput" Visible="false" runat="server" Width="117px" OnTextChanged="bidInput_TextChanged" >0</asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="bidInput" ErrorMessage="Must enter bid" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:Label ID="notValidLabel" runat="server"  Text="Label" Visible ="False" Font-Bold="True" ForeColor="Red"></asp:Label>
+                </td>
+                <td>
+                    <asp:Button ID="viewBids" runat="server" Text="View All My Bids" OnClick="viewBids_Click" />
+                    <br />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style3">&nbsp;</td>
-                <td>
+                <td class="auto-style4">
                     <asp:Button ID="confirmPaymentButton" Visible="false" runat="server" Text="Confirm Bid" OnClick="confirmPaymentButton_Click" />
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
         </table>
         <br />
