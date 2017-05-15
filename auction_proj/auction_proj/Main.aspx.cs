@@ -19,10 +19,12 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
+            //check the account type and only show the proper drop down
             if((string)HttpContext.Current.Session["account_type"] == "employee" || (string)HttpContext.Current.Session["account_type"] =="npo_rep" && toDoDropDown.Items.Count<5)
             {
                 toDoDropDown.Items.Add("Register Employee/Rep");
             }
+            //show welcome message
             welcomeTB.Text = "Welcome, " + (string)Session["full_name"];
             who = (string)Session["account_type"];
 

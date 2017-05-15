@@ -16,15 +16,7 @@ namespace auction_proj
         public string who="";
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            nameInput.Text = (string)Session["full_name"];
-            phoneInput.Text = (string)Session["phone"];
-            streetInput.Text = (string)Session["street"];
-            stateInput.Text = (string)Session["us_state"];
-            zipInput.Text = (string)Session["zip"];
-            
-            */
-            //accountSelect.Visible = false;
+          //what to do tells us if they want to edit their profile, view, or register
             if (whatToDo != 2)
             {
                 if ((string)Session["loggedIn"] == "false")

@@ -38,7 +38,7 @@ namespace auction_proj
 
             //get the auction information from database
             List<string> info = dbClass.auction_info(currentAuction);
-
+            //populate the correct information for the auction
             if (info.Count != 0)
             {
                 org = info[0];
@@ -48,7 +48,7 @@ namespace auction_proj
                 numItems = info[4];
                 comments = info[5];
             }
-
+            //add list of items to list box
            if(itemsListBox.SelectedIndex == -1)
             {
                 foreach (string i in dbClass.auction_items(currentAuction))
@@ -60,7 +60,7 @@ namespace auction_proj
             }
 
            
-
+           //set the text to current information
             auctOrg.Text = "Organization: " + org;
             auctContact.Text = "Contact: " + contact;
             auctDate.Text = "Date & Time: " + date;
@@ -79,12 +79,12 @@ namespace auction_proj
         {
 
         }
-
+        //user wants to view all their bids
         protected void viewBids_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/auctionPage.aspx");
         }
-
+        //someone just placed a bid
         protected void bidOnItemButton_Click(object sender, EventArgs e)
         {
             //show the bidding information
@@ -111,7 +111,7 @@ namespace auction_proj
             
 
         }
-
+        //confirm the bid payment, verify all information is good
         protected void confirmPaymentButton_Click(object sender, EventArgs e)
         {
             double bid;
@@ -152,7 +152,7 @@ namespace auction_proj
             Response.Redirect("~/SelectAuction.aspx");
         }
 
-       
+       //gets passed in before the page is loaded to know what org to populate
         public static void setAuction(String auctionName)
         {
             currentAuction = auctionName;

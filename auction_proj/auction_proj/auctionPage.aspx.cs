@@ -13,12 +13,14 @@ namespace auction_proj
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //make sure user is logged in
             if ((string)Session["loggedIn"] == "false")
             {
                 Response.Redirect("~/login.aspx");
             }
             if (!Page.IsPostBack)
             {
+                //query for the bid
                 if (HttpContext.Current.Session["account_type"].ToString() == "bidder")
                 {
                     SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);

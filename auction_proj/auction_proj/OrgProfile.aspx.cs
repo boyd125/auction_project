@@ -43,10 +43,7 @@ namespace auction_proj
                 {
                     showEditProfile();
                 }
-                /*else if (whatToDo == 2)
-                {
-                    
-                }*/
+               
             }
 
 

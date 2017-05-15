@@ -22,6 +22,7 @@ namespace auction_proj
         }
         protected void editProfSubmit_Click(object sender, EventArgs e)
         {
+            //shows edit profile for employee or npo rep
                 accountSelect.Visible = true;
                 string acc="";
                 if (accountSelect.SelectedIndex == 0)
