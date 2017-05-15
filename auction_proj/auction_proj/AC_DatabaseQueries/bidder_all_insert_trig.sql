@@ -1,4 +1,3 @@
---triggers on insert
 create trigger bidder_all_insert_trig
 	on Bidder_All
 	instead of insert

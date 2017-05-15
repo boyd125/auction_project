@@ -20,7 +20,6 @@ create trigger item_all_insert_trig
 				begin
 					select top 1 @item_name = item_name from #ttable
 					select top 1 @auction = auction from #ttable
-					--select top 1 @id = id from #ttable
 					select top 1 @quantity = quantity from #ttable
 					select top 1 @start_bid = start_bid from #ttable
 					select top 1 @donor = donor from #ttable
@@ -46,6 +45,3 @@ create trigger item_all_insert_trig
 				end
 		end
 	end
-
---insert into Item_All(item_name, auction, quantity, start_bid, donor, sell_price, condition, comments, photo)
-	--values ('name', 'auction', 3, 4.50, 'Frank', 10.00, 'good', 'it''s good', null)

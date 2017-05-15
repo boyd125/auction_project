@@ -55,4 +55,3 @@ create trigger item_all_update_trig
 		end
 	end
 
---delete from Item_All where quantity = 1
