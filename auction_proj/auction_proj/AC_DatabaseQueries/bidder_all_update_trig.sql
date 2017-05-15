@@ -1,5 +1,4 @@
 --can't change primary key account_email
---triggers on update
 create trigger bidder_all_update_trig
 	on Bidder_All
 	instead of update

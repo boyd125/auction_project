@@ -1,7 +1,6 @@
 --create tables
 
 --base tables
-
 create table Auction_Org(
 	org varchar(50),
 	primary key(org)
@@ -33,7 +32,6 @@ create table Bidder_Account(
 )
 
 --foreign tables
-
 create table Auction_Contact(
 	org varchar(50),
 	contact varchar(50),
@@ -192,8 +190,3 @@ create table Bid(
 )
 
 
-insert into Bid
-	values ('aceattorney@gmail.com', 'Toys For Tots', (select id from Item_Auction_ID where auction = 'Toys For Tots' and item_name = 'Transformer'), 100.00)
-
-insert into Bid
-	values ('aceattorney@gmail.com', 'Toys For Tots', (select id from Item_Auction_ID where auction = 'Toys For Tots' and item_name = 'Yo-Yo'), 200.00)

@@ -49,4 +49,3 @@ create trigger item_all_update_trig
 		end
 	end
 
---update Item_All set donor = 'McDuck' where quantity = 2

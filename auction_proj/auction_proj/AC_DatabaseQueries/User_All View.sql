@@ -1,3 +1,4 @@
+--aggregates user views, adds attribute identifying account type
 create view User_All
 	as 
 		select account_email, account_password, account_type = 'bidder'

@@ -1,17 +1,3 @@
-----drop views
---if(object_id('Bidder_All')) is not null
---	delete Bidder_All
---if(object_id('Auction_All')) is not null
---	delete Auction_All
---if(object_id('Item_All')) is not null
---	delete Item_All
---if(object_id('Employee_All')) is not null
---	delete Employee_All
---if(object_id('NPO_Rep_All')) is not null
---	delete NPO_Rep_All
---if(object_id('User_All')) is not null
---	delete User_All
-
 --drop tables with foreign keys
 delete Auction_Contact
 delete Auction_Date_Time

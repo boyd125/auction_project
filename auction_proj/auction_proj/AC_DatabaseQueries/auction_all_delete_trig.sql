@@ -51,5 +51,3 @@ create trigger auction_all_delete_trig
 				end
 			end
 		end
-
---delete from Auction_All where org = 'WWO'
