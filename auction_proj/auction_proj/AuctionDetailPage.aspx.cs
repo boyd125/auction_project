@@ -116,6 +116,7 @@ namespace auction_proj
         {
             double bid;
             bool result = Double.TryParse(bidInput.Text, out bid);
+            //Makes bid input an integer above 0
             if(!result || bid == 0)
             {
                 notValidLabel.Text = "Input must be greater than 0 and must be a number.";
