@@ -227,6 +227,8 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Themes\Theme1\font-awesome.min.css" />
+    <Content Include="App_Themes\Theme1\main.css" />
     <Content Include="AuctionCalendar.aspx" />
     <Content Include="AuctionDetailPage.aspx" />
     <Content Include="auctionPage.aspx" />
