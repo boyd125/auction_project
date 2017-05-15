@@ -495,7 +495,37 @@ namespace auction_proj
             }
         }
 
+        public static string get_item_id(string item_name, string org)
+        {
+            string id = "";
 
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"select id from Item_Auction_ID where item_name = @item_name
+                        and org = @org", con);
+                    cmd.Parameters.AddWithValue("@item_name", item_name);
+                    cmd.Parameters.AddWithValue("@org", org);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read() && reader.HasRows)
+                        {
+                                id = reader["id"].ToString();
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            return id;
+        }
     }
 }
 //update user with session variables
