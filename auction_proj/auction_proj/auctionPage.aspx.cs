@@ -21,7 +21,7 @@ namespace auction_proj
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
                 conn.Open();
-                string strSQL = "Select [auction], [item], [bid] From [Bid] where bidder=@user";
+                string strSQL = "Select Bid.auction, Bid.item, Item_Auction_Id.item_name, Bid.bid From Bid, Item_Auction_ID where Bid.bidder=@user and Item_Auction_ID.id = item";
                 SqlCommand scmd = new SqlCommand(strSQL, conn);
                 scmd.Parameters.AddWithValue("@user", HttpContext.Current.Session["account_email"]);
                 SqlDataReader reader = scmd.ExecuteReader();
