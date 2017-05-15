@@ -41,6 +41,11 @@ namespace auction_proj
 
             Response.Redirect("~/Main.aspx");
         }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
