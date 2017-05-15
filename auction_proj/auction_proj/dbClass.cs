@@ -203,7 +203,6 @@ namespace auction_proj
                             {
                                 HttpContext.Current.Session["account_email"] = oReader["account_email"].ToString();
                                 HttpContext.Current.Session["full_name"] = oReader["full_name"].ToString();
-                                HttpContext.Current.Session["phone"] = oReader["phone"].ToString();
                                 if ((string)HttpContext.Current.Session["account_type"] == "bidder")
                                 {
                                     HttpContext.Current.Session["street"] = oReader["street"].ToString();
