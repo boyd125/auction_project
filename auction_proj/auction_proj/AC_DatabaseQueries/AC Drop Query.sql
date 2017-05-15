@@ -15,6 +15,7 @@ if(object_id('User_All')) is not null
 --drop tables with foreign keys
 drop table Auction_Contact
 drop table Auction_Date_Time
+drop table Auction_Last_Date_Time
 drop table Auction_Intake
 drop table Auction_Exp_Num_Items
 drop table Auction_Comments
