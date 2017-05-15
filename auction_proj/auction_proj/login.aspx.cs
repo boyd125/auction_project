@@ -22,8 +22,8 @@ namespace auction_proj
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (TextBox1.Text != "")
-            {
+            //if (TextBox1.Text != "")
+           // {
                 dbClass.login(TextBox1.Text, TextBox2.Text);
                 /*
                 string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
@@ -83,7 +83,7 @@ namespace auction_proj
                     }
                 }
                 */
-            }
+           // }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
