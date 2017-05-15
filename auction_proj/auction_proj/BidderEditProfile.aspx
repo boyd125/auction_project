@@ -28,10 +28,6 @@
             width: 128px;
             height: 26px;
         }
-        .auto-style10 {
-            width: 188px;
-            height: 26px;
-        }
         .auto-style12 {
             height: 26px;
             width: 282px;
@@ -45,6 +41,10 @@
         }
         .auto-style15 {
             width: 257px;
+        }
+        .auto-style16 {
+            width: 191px;
+            height: 26px;
         }
     </style>
 </head>
@@ -156,7 +156,7 @@
                 <td class="auto-style9">
         <asp:TextBox ID="userTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
                 </td>
-                <td class="auto-style10">
+                <td class="auto-style16">
                 </td>
             </tr>
             <br />
@@ -168,8 +168,9 @@
                 <td class="auto-style9">
         <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
-                <td class="auto-style10">
-                    &nbsp;</td>
+                <td class="auto-style16">
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="passTB" ErrorMessage="Must be at least 8 characters" Font-Bold="True" ForeColor="Red" MaximumValue="8"></asp:RangeValidator>
+                </td>
             </tr>
             <br />
              <tr>
@@ -180,7 +181,7 @@
                 <td class="auto-style9">
         <asp:TextBox ID="confirmTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
-                <td class="auto-style10">
+                <td class="auto-style16">
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="passTB" ControlToValidate="confirmTB" ErrorMessage="Passwords must match" Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
                 </td>
             </tr>
