@@ -470,6 +470,32 @@ namespace auction_proj
             }
             return item_bid_info;
         }
+
+        public static void insert_bid(string account_email, string org, string item_id, float bid)
+        {
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into Bid values (@bidder, @auction, @item, @bid)", con);
+                    cmd.Parameters.AddWithValue("@bidder", account_email);
+                    cmd.Parameters.AddWithValue("@auction", org);
+                    cmd.Parameters.AddWithValue("@item", item_id);
+                    cmd.Parameters.AddWithValue("@bid", bid.ToString());
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+        }
+
+
     }
 }
 //update user with session variables
