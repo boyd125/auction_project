@@ -506,7 +506,7 @@ namespace auction_proj
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"select id from Item_Auction_ID where item_name = @item_name
-                        and org = @org", con);
+                        and auction = @org", con);
                     cmd.Parameters.AddWithValue("@item_name", item_name);
                     cmd.Parameters.AddWithValue("@org", org);
                     using (SqlDataReader reader = cmd.ExecuteReader())
