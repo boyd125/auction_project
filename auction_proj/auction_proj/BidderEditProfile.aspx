@@ -190,10 +190,7 @@
 
             <br />
                 <td class="auto-style15">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                   
                     <br />
                     <asp:RadioButtonList ID="accountSelect" runat="server">
                         <asp:ListItem>Bidder</asp:ListItem>
@@ -201,10 +198,11 @@
                         <asp:ListItem>Employee</asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
-                    <br />
-                    <br />
-        <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
-                  
+
+                     <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
+             <br /> 
+                     <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
+
 
                 </td>
             </tr>
@@ -225,8 +223,7 @@
       
         </table>
         </div>
-  
-           <asp:Button ID="backToHome" runat="server" Text="Back To Home" OnClick="backToHome_Click" />
+<br />
                
       
     </form>
