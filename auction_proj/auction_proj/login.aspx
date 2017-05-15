@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="auction_proj.login" %>
+﻿<%@ Page Language="C#" Theme="Theme1" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="auction_proj.login" %>
 
 <!DOCTYPE html>
 
@@ -18,6 +18,9 @@
         .auto-style6 {
             width: 445px;
         }
+        .auto-style7 {
+            width: 817px;
+        }
         </style>
 </head>
 <body>
@@ -29,6 +32,8 @@
         <asp:Label ID="Label1" runat="server" CssClass="auto-style2" Font-Names="Papyrus" Font-Size="XX-Large" ForeColor="#66CCFF" Text="Welcome"></asp:Label>
             <div style="text-align: center;">
                    <asp:Label ID="Label3" runat="server" Text="Please Login"></asp:Label>
+                   <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                    </div>
 
             <table class="auto-style4" table align="center">
@@ -39,12 +44,6 @@
                     <td class="auto-style2">
                    <asp:TextBox ID="TextBox1" runat="server" Width="175px"></asp:TextBox>
                     </td>
-                    <td class="auto-style4">
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                    </td>
-
-                    <td class="auto-style6">
-                        &nbsp;</td>
 
                 </tr>
                 <tr>
@@ -57,8 +56,8 @@
                 </tr>
             </table>
         <p>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" BackColor="#FFFFCC" BorderStyle="Outset" Font-Bold="False" Font-Italic="False" Font-Names="FrankRuehl" Height="25px" Width="57px" />
-                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Register" BackColor="#FFFFCC" BorderStyle="Outset" Font-Bold="False" Font-Italic="False" Font-Names="FrankRuehl" Height="25px" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login"  />
+                <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Register" />
                    </p>
                          </div>
     </form>
