@@ -44,7 +44,13 @@ create table Auction_Contact(
 create table Auction_Date_Time(
 	org varchar(50),
 	date_time datetime,
-	foreign key(org) references Auction_Org(org),
+	foreign key(org) references Auction_Org(org)
+)
+
+create table Auction_Last_Date_Time(
+	org varchar(50),
+	date_time datetime,
+	primary key(org)
 )
 
 create table Auction_Intake(
@@ -172,8 +178,3 @@ create table Bid(
 )
 
 
---select org from Auction_Contact where contact = 'email'
-
---select org from Auction_All where date_time between '03/03/2017 00:00:00:000' and '03/03/2017 23:59:59:999'
-
-select * from Auction_All where org = 'Red Cross'

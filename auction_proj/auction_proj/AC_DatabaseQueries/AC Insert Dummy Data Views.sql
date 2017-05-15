@@ -8,12 +8,18 @@ insert into NPO_Rep_All values ('carl@toysfortots.org', 'tottoys', 'Carl Evans',
 insert into Auction_All values ('Toys For Tots', 'carl@toysfortots.org', '05/06/2017 13:00:00', 'amy@auctioncentral.com', 
 		20, 'Gonna be a lot of toys')
 
-insert into Auction_All values ('Toys For Teens', 'carl@toysfortots.org', '05/06/2017 16:00:00', 'amy@auctioncentral.com', 
-		20, 'Gonna be a lot of toys')
+--insert into Auction_All values ('Toys For Teens', 'carl@toysfortots.org', '05/06/2017 16:00:00', 'amy@auctioncentral.com', 
+--		20, 'Gonna be a lot of toys')
 
-insert into Auction_All values ('Toys For Toddlers', 'carl@toysfortots.org', '05/06/2017 06:00:00', 'amy@auctioncentral.com', 
-		20, 'Gonna be a lot of toys')
+--insert into Auction_All values ('Toys For Toddlers', 'carl@toysfortots.org', '05/06/2017 06:00:00', 'amy@auctioncentral.com', 
+--		20, 'Gonna be a lot of toys')
 
 insert into Item_All (item_name, auction, quantity, start_bid, donor, sell_price, condition, comments, photo)
 	values
 		('Transformer', 'Toys For Tots', 1, 20.00, 'Optimus Prime', 15.00, 'New', 'It''s cool', null)
+
+delete from Auction_All
+	where org = 'Toys For Tots'
+
+insert into Auction_All values ('Toys For Tots', 'carl@toysfortots.org', '10/06/2017 13:00:00', 'amy@auctioncentral.com', 
+		20, 'Gonna be a lot of toys')
