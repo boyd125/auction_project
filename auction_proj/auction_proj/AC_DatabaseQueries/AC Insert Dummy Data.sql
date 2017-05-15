@@ -1,5 +1,3 @@
-set nocount on
-
 --base tables
 insert into Auction_Org(org)
 	values

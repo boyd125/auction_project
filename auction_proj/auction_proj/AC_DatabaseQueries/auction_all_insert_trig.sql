@@ -1,4 +1,4 @@
-create trigger auction_all_insert_trig
+alter trigger auction_all_insert_trig
 	on Auction_All
 	instead of insert
 	as
@@ -13,7 +13,7 @@ create trigger auction_all_insert_trig
 		select * into #ttable from inserted
 		begin
 			--max 25 BR
-			if ((select count(org) from Auction_Org)) = 25
+			if ((select count(org) from Auction_Org)) >= 25
 				raiserror('Transaction failed: max number of auctions is 25', 0, 1) with nowait
 				
 			else
