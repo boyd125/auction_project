@@ -126,7 +126,8 @@
         <asp:TextBox ID="cityInput" runat="server" Width="155px" ></asp:TextBox>
                 </td>
                 <td class="auto-style2">
-                    &nbsp;</td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="cityInput" ErrorMessage="Must enter City" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style13">
@@ -136,7 +137,8 @@
         <asp:TextBox ID="stateInput" runat="server" Width="155px" ></asp:TextBox>
                 </td>
                 <td class="auto-style2">
-                    &nbsp;</td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="stateInput" ErrorMessage="Must enter State" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style13">
@@ -153,11 +155,9 @@
                  <table align="left" class="auto-style1">
             <tr>
                 <td class="auto-style14">
-        <asp:Label ID="userLabel" runat="server" Font-Bold="true" Text="UserName: "  Visible="false"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style9">
-        <asp:TextBox ID="userTB" runat="server" Visible="false" Width="157px" ></asp:TextBox>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style16">
                 </td>
             </tr>
@@ -171,7 +171,7 @@
         <asp:TextBox ID="passTB" runat="server" Visible="false" Width="157px" TextMode="Password" ></asp:TextBox>
                 </td>
                 <td class="auto-style16">
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="passTB" ErrorMessage="Must be at least 8 characters" Font-Bold="True" ForeColor="Red" MinimumValue="8"></asp:RangeValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="passTB" ErrorMessage="Must enter a Password" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <br />
