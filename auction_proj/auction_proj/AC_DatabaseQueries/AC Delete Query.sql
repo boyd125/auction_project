@@ -15,6 +15,7 @@
 --drop tables with foreign keys
 delete Auction_Contact
 delete Auction_Date_Time
+delete Auction_Last_Date_Time
 delete Auction_Intake
 delete Auction_Exp_Num_Items
 delete Auction_Comments
