@@ -41,8 +41,8 @@ insert into Auction_Contact(org, contact)
 insert into Auction_Date_Time(org, date_time)
 	values
 		('WWO', '01/01/2017 13:00:00'),
-		('UNICEF', '02/02/2017 14:00:00'),
-		('Red Cross', '03/03/2017 15:00:00')
+		('UNICEF', '05/05/2017 14:00:00'),
+		('Red Cross', '05/05/2017 17:00:00')
 
 insert into Auction_Intake(org, intake)
 	values
