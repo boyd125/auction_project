@@ -290,10 +290,12 @@ namespace auction_proj
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand(@"insert into Bidder_All_View values (@account_email,
-                        @account_password, @full_name, @phone, @street, @city, @us_state, @zip)", con);
+                        @account_password, @full_name, @phone, @credit_card, @street, @city, @us_state, @zip)", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
                     cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
                     cmd.Parameters.AddWithValue("@full_name", full_name);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@credit_card", null);
                     cmd.Parameters.AddWithValue("@street", street);
                     cmd.Parameters.AddWithValue("@city", city);
                     cmd.Parameters.AddWithValue("@us_state", us_state);
