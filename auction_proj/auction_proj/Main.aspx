@@ -17,7 +17,7 @@
         <asp:DropDownList ID="toDoDropDown" runat="server" BackColor="Silver">
             <asp:ListItem Text="--Select One--"  Enabled="True" Value="0"></asp:ListItem>
             <asp:ListItem Text="Browse Auctions"  Enabled="true" Value="1"></asp:ListItem>
-             <asp:ListItem Text="My Items"  Enabled="true" Value="2"></asp:ListItem>
+             <asp:ListItem Text="My Bids"  Enabled="true" Value="2"></asp:ListItem>
             <asp:ListItem Text="View Calander"  Enabled="true" Value="3"></asp:ListItem>
              <asp:ListItem Text="My Profile"  Enabled="true" Value="4"></asp:ListItem>
         </asp:DropDownList>

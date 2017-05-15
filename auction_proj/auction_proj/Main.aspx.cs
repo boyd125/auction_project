@@ -41,7 +41,7 @@ namespace auction_proj
                 //myauctions
                 case 2:
                     SelectAuction.setMyOrBrowseAuctions(1);
-                    Response.Redirect("~/SelectAuction.aspx");
+                    Response.Redirect("~/auctionpage.aspx");
                     break;
                 //view calander
                 case 3:

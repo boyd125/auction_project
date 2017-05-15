@@ -27,6 +27,7 @@ namespace auction_proj
                 SqlDataReader reader = scmd.ExecuteReader();
                 GridView1.DataSource = reader;
                 GridView1.DataBind();
+                conn.Close();
             }
         }
 

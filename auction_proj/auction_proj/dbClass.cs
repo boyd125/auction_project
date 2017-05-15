@@ -165,7 +165,7 @@ namespace auction_proj
                     SqlCommand cmd = new SqlCommand(@"select * from User_All where account_email = @account_email 
                         and account_password = @account_password", con);
                     cmd.Parameters.AddWithValue("@account_email", account_email);
-                    cmd.Parameters.AddWithValue("@account_password", encrypt.encryptPass(account_password));
+                    cmd.Parameters.AddWithValue("@account_password", account_password);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())

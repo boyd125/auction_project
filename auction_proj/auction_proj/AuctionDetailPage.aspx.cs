@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace auction_proj
 {
@@ -104,8 +106,27 @@ namespace auction_proj
 
         protected void confirmPaymentButton_Click(object sender, EventArgs e)
         {
-            //record the item with the auction and put it in their items list
-            //if input is 0, they didnt enter anything so don't do this
+            string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conStr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(@"insert into Bid values (@account_email,
+                        @amount, @auction, @item)", con);
+                    cmd.Parameters.AddWithValue("@account_email", HttpContext.Current.Session["account_email"]);
+                    cmd.Parameters.AddWithValue("@amount", int.Parse(bidInput.Text));
+                    cmd.Parameters.AddWithValue("@auction", org);
+                    cmd.Parameters.AddWithValue("@item", itemsListBox.Items[itemsListBox.SelectedIndex].Text);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
 
         protected void backToHome_Click(object sender, EventArgs e)
