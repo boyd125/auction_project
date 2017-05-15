@@ -110,20 +110,6 @@ namespace auction_proj
             //just entered register info  
             else if (editProfSubmit.Text.ToString().Equals("Register"))
             {
-                accountSelect.Visible = true;
-                string acc;
-                if(accountSelect.SelectedIndex==0)
-                {
-                    acc = "bidder";
-                }
-                if (accountSelect.SelectedIndex == 1)
-                {
-                    acc = "npo_rep";
-                }
-                if (accountSelect.SelectedIndex == 2)
-                {
-                    acc = "employee";
-                }
                 string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
@@ -163,7 +149,6 @@ namespace auction_proj
             phoneInput.Visible = true;
             phoneInput.Text = (string)Session["phone"];
             phoneLabel.Text ="Phone #:";
-            addressLabel.Text = "Address";
             streetInput.Visible = true;
             streetInput.Text = (string)Session["street"];
             streetAdLabel.Text = "Street:";
@@ -176,7 +161,6 @@ namespace auction_proj
             zipInput.Visible = true;
             zipInput.Text = (string)Session["zip"];
             zipLabel.Text = "Zip:";
-            accountSelect.Visible = false;
 
             editProfSubmit.Text = "Submit";
         }
@@ -205,7 +189,6 @@ namespace auction_proj
             //zip = zipInput.Text.ToString();
             zipLabel.Text = zipLabel.Text.ToString() + (string)Session["zip"];
 
-            accountSelect.Visible = false;
 
             editProfSubmit.Text = "Edit";
         }
@@ -225,7 +208,6 @@ namespace auction_proj
             emailILabel.Text = "Email:";
             phoneInput.Visible = true;
             phoneLabel.Text = "Phone #:";
-            addressLabel.Text = "Address:";
             streetInput.Visible = true;
             streetAdLabel.Text = "Street:";
             cityInput.Visible = true;

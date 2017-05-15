@@ -19,6 +19,10 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
+            if((string)HttpContext.Current.Session["account_type"] == "employee" || (string)HttpContext.Current.Session["account_type"] =="npo_rep")
+            {
+                toDoDropDown.Items.Add("Register Employee/Rep");
+            }
             welcomeTB.Text = "Welcome, " + (string)Session["full_name"];
             who = (string)Session["account_type"];
 
@@ -65,6 +69,9 @@ namespace auction_proj
                     }
                         
 
+                    break;
+                case 5:
+                    Response.Redirect("~/empReg.aspx");
                     break;
             }
             

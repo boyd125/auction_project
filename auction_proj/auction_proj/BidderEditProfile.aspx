@@ -99,17 +99,7 @@
             </tr>
             <tr>
                 <td class="auto-style13">
-        <asp:Label ID="addressLabel" runat="server" Font-Bold="True" Text="Address" ></asp:Label>
-                </td>
-                <td class="auto-style6">
-                    &nbsp;</td>
-                <td class="auto-style2">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emailInput" ErrorMessage="Must input Email" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style13">
-        <asp:Label ID="streetAdLabel" runat="server" Font-Bold="true" Text="Street: "></asp:Label>
+        <asp:Label ID="streetAdLabel" runat="server" Font-Bold="True" Text="Street Address: "></asp:Label>
                 </td>
                 <td class="auto-style6">
         <asp:TextBox ID="streetInput" runat="server" Width="155px" ></asp:TextBox>
@@ -194,11 +184,6 @@
                 <td class="auto-style15">
                    
                     <br />
-                    <asp:RadioButtonList ID="accountSelect" runat="server">
-                        <asp:ListItem>Bidder</asp:ListItem>
-                        <asp:ListItem>NPO Rep</asp:ListItem>
-                        <asp:ListItem>Employee</asp:ListItem>
-                    </asp:RadioButtonList>
                     <br />
 
                      <asp:Button ID="editProfSubmit" runat="server" Text="Submit" OnClick="editProfSubmit_Click" BackColor="#FFFFCC" ForeColor="Black"  />
