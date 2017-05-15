@@ -48,6 +48,3 @@ create trigger bidder_all_delete_trig
 				end
 			end
 		end
-
---test delete
---delete from Bidder_All where account_email = 'aceattorney@gmail.com'

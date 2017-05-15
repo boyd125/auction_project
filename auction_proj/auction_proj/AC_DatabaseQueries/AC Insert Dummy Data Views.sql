@@ -16,6 +16,7 @@ insert into NPO_Rep_All values ('carl@toysfortots.org', 'tottoys', 'Carl Evans',
 --		('Med Kit', 'Red Cross', 1, 3.00, 'Nurse', null, 'Fine', null, null),
 --		('Piggy Bank', 'UNICEF', 1, 2.50, 'Generous Guy', null, 'Brand new', null, null)
 
+--Business Rule Tests
 
 --BR1 (artificially set to 5 from 25)
 insert into Auction_Org

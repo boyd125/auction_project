@@ -16,6 +16,7 @@ create trigger bid_insert_trig
 					select top 1 @item = item from #ttable
 					select top 1 @bid = bid from #ttable
 
+					--updates matching bid with same bidder, auction, item
 					if (exists(select bidder, auction, item from Bid where bidder = @bidder and auction = @auction 
 						and item = @item))
 						begin

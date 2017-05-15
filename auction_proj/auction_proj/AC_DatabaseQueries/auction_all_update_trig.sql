@@ -42,6 +42,7 @@ create trigger auction_all_update_trig
 
 						select top 1 @date_time = date_time from #ttable
 
+						--no more than 3 months on advance
 						if (datediff(month, getdate(), @date_time) > 3)
 							begin
 								raiserror('Transaction failed: Auction cannot be scheculed more than three months in advance.', 0, 1) with nowait
@@ -111,4 +112,3 @@ create trigger auction_all_update_trig
 		end
 	end
 
---update Auction_All set intake = 'Mary Jenkins' where org = 'WWO'
