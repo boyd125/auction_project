@@ -73,8 +73,7 @@ create table Auction_Exp_Num_Items(
 create table Auction_Comments(
 	org varchar(50),
 	comments varchar(500),
-	foreign key(org) references Auction_Org(org),
-	primary key(org, comments)
+	foreign key(org) references Auction_Org(org)
 )
 
 create table Employee_Name(
@@ -122,8 +121,7 @@ create table Item_Donor(
 create table Item_Sell_Price(
 	id int,
 	sell_price decimal(10, 2),
-	foreign key(id) references Item_Auction_ID(id),
-	primary key(id, sell_price)
+	foreign key(id) references Item_Auction_ID(id)
 )
 
 create table Item_Condition(
@@ -136,15 +134,13 @@ create table Item_Condition(
 create table Item_Comments(
 	id int,
 	comments varchar(500),
-	foreign key(id) references Item_Auction_ID(id),
-	primary key(id, comments)
+	foreign key(id) references Item_Auction_ID(id)
 )
 
 create table Item_Photo(
 	id int,
 	photo varchar(500),
-	foreign key(id) references Item_Auction_ID(id),
-	primary key(id, photo)
+	foreign key(id) references Item_Auction_ID(id)
 )
 
 create table Bidder_Name(
@@ -164,8 +160,7 @@ create table Bidder_Phone(
 create table Bidder_Payment(
 	bidder varchar(50),
 	credit_card varchar(19),
-	foreign key(bidder) references Bidder_Account(account_email),
-	primary key(bidder, credit_card)
+	foreign key(bidder) references Bidder_Account(account_email)
 )
 
 --have to assume no two bidders have the same address
