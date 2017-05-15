@@ -27,12 +27,13 @@ namespace auction_proj
                 if (accountSelect.SelectedIndex == 0)
                 {
                     acc = "npo_rep";
+                    phoneInput.Visible = true;
                 }
                 if (accountSelect.SelectedIndex == 1)
                 {
-                phoneInput.Visible = false;
                     acc = "employee";
-                }
+                    phoneInput.Visible = false;
+                }   
                 string conStr = ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString;
                 if(acc=="npo_rep")
                 {
