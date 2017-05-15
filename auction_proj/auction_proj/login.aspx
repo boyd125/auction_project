@@ -10,13 +10,13 @@
             width: 134px;
         }
         .auto-style4 {
-            width: 399px;
+            width: 470px;
         }
         .auto-style5 {
             width: 547px;
         }
         .auto-style6 {
-            width: 310px;
+            width: 445px;
         }
         </style>
 </head>
@@ -37,10 +37,14 @@
                         <asp:Label ID="username" runat="server" Text="Username"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                   <asp:TextBox ID="TextBox1" runat="server" Width="128px"></asp:TextBox>
+                   <asp:TextBox ID="TextBox1" runat="server" Width="175px"></asp:TextBox>
                     </td>
                     <td class="auto-style4">
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email adress" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Please enter login Email" ForeColor="#66CCFF"></asp:RequiredFieldValidator>
+                    </td>
+
+                    <td class="auto-style6">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter an Email" ControlToValidate="TextBox1" ForeColor="#66CCFF" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
 
                 </tr>
@@ -49,7 +53,7 @@
                         <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
                     </td>
                     <td class="auto-style2">
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="128px">password</asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="174px">password</asp:TextBox>
                     </td>
                 </tr>
             </table>

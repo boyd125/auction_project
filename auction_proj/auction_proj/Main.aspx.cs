@@ -22,6 +22,7 @@ namespace auction_proj
             welcomeTB.Text = "Welcome, " + (string)Session["full_name"];
             who = (string)Session["account_type"];
 
+
         }
 
         protected void submitToDo_Click(object sender, EventArgs e)

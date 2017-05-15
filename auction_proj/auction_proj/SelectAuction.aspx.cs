@@ -27,7 +27,7 @@ namespace auction_proj
                 Label1.Text = "My Auctions";
             }
             this.ListBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
-            
+           
             List<string> auctions = dbClass.all_auctions();
             foreach(string auction in auctions)
             {
@@ -49,7 +49,12 @@ namespace auction_proj
                 AuctionDetailPage.setAuction(name);
                 Response.Redirect("~/AuctionDetailPage.aspx");
             }
-           
+            else if(ListBox1.SelectedIndex.Equals(-1))
+            {
+                ListBox1.Items.Clear();
+                Response.Redirect("~/SelectAuction.aspx");
+            }
+
         }
         public static void setMyOrBrowseAuctions(int num)
         {

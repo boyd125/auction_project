@@ -31,8 +31,6 @@
         <asp:Label ID="auctDate" runat="server" Text="Date & Time: "></asp:Label>
         <br />
         <asp:Label ID="auctIntake" runat="server" Text="Intake: "></asp:Label> 
-        <br />     
-        <asp:Label ID="auctNumItems" runat="server" Text="Items: "></asp:Label>
         <br />
         <asp:Label ID="auctComments" runat="server" Text="Comments: "></asp:Label>
         <br />
@@ -61,7 +59,8 @@
                    <br />
                     <br />
                      <asp:Label ID="pLabel" Visible="false" runat="server" Text="Your Bid: $ "></asp:Label>
-                    <asp:TextBox ID="bidInput" Visible="false" runat="server" Width="117px" ></asp:TextBox>
+                    <asp:TextBox ID="bidInput" Visible="false" runat="server" Width="117px" OnTextChanged="bidInput_TextChanged" >0</asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="bidInput" ErrorMessage="Must enter bid" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
