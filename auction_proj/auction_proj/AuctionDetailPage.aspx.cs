@@ -63,13 +63,17 @@ namespace auction_proj
             auctContact.Text = "Contact: " + contact;
             auctDate.Text = "Date & Time: " + date;
             auctIntake.Text = "Intake: " + intake;
-            auctNumItems.Text = "Items: " + numItems;
             auctComments.Text = "Comments: " + comments;  
         }
 
         protected void Calendar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/AuctionCalendar.aspx");
+        }
+
+        protected void bidInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         protected void bidOnItemButton_Click(object sender, EventArgs e)
@@ -88,9 +92,11 @@ namespace auction_proj
                 bidInput.Visible = true;
                 confirmPaymentButton.Visible = true;
             }
-            else
-            {
-                currentBidderName.Text = "Please select and item to bid on.";
+            else if (itemsListBox.SelectedIndex.Equals(-1))
+             {
+                    itemsListBox.Items.Clear();
+                    Response.Redirect("~/AuctionDetailPage.aspx");
+               
             }
             
 
@@ -99,10 +105,12 @@ namespace auction_proj
         protected void confirmPaymentButton_Click(object sender, EventArgs e)
         {
             //record the item with the auction and put it in their items list
+            //if input is 0, they didnt enter anything so don't do this
         }
 
         protected void backToHome_Click(object sender, EventArgs e)
         {
+ 
             Response.Redirect("~/Main.aspx");
         }
 
