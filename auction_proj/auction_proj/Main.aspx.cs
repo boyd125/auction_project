@@ -19,7 +19,7 @@ namespace auction_proj
             {
                 Response.Redirect("~/login.aspx");
             }
-            if((string)HttpContext.Current.Session["account_type"] == "employee" || (string)HttpContext.Current.Session["account_type"] =="npo_rep")
+            if((string)HttpContext.Current.Session["account_type"] == "employee" || (string)HttpContext.Current.Session["account_type"] =="npo_rep" && toDoDropDown.Items.Count<5)
             {
                 toDoDropDown.Items.Add("Register Employee/Rep");
             }

@@ -19,15 +19,32 @@ namespace auction_proj
             }
             if (!Page.IsPostBack)
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
-                conn.Open();
-                string strSQL = "Select Bid.auction, Bid.item, Item_Auction_Id.item_name, Bid.bid From Bid, Item_Auction_ID where Bid.bidder=@user and Item_Auction_ID.id = item";
-                SqlCommand scmd = new SqlCommand(strSQL, conn);
-                scmd.Parameters.AddWithValue("@user", HttpContext.Current.Session["account_email"]);
-                SqlDataReader reader = scmd.ExecuteReader();
-                GridView1.DataSource = reader;
-                GridView1.DataBind();
-                conn.Close();
+
+                if ((string)Session["account_type"] == "npo_rep") {
+                    /*
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
+                    conn.Open();
+                    //string strSQL = "Select item_name, quantity, start_bid, sell_price From Item_all where ";
+                    SqlCommand scmd = new SqlCommand(strSQL, conn);
+                    scmd.Parameters.AddWithValue("@user", HttpContext.Current.Session["account_email"]);
+                    SqlDataReader reader = scmd.ExecuteReader();
+                    GridView1.DataSource = reader;
+                    GridView1.DataBind();
+                    conn.Close();
+                    */
+                }
+                else
+                {
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["masterDB"].ConnectionString);
+                    conn.Open();
+                    string strSQL = "Select Bid.auction, Bid.item, Item_Auction_Id.item_name, Bid.bid From Bid, Item_Auction_ID where Bid.bidder=@user and Item_Auction_ID.id = item";
+                    SqlCommand scmd = new SqlCommand(strSQL, conn);
+                    scmd.Parameters.AddWithValue("@user", HttpContext.Current.Session["account_email"]);
+                    SqlDataReader reader = scmd.ExecuteReader();
+                    GridView1.DataSource = reader;
+                    GridView1.DataBind();
+                    conn.Close();
+                }
             }
         }
 

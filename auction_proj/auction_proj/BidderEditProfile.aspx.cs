@@ -13,7 +13,7 @@ namespace auction_proj
     public partial class BidderEditProfile : System.Web.UI.Page
     {
         public static int whatToDo = -1;
-        public string who;
+        public string who="";
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
