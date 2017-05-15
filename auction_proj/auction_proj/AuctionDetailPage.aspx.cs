@@ -107,7 +107,7 @@ namespace auction_proj
         protected void confirmPaymentButton_Click(object sender, EventArgs e)
         {
             dbClass.insert_bid((string)HttpContext.Current.Session["account_email"], org, dbClass.get_item_id(itemsListBox.Items[itemsListBox.SelectedIndex].Text, org), int.Parse(bidInput.Text));
-
+            Response.Redirect("~/auctionPage.aspx");
         }
 
         protected void backToHome_Click(object sender, EventArgs e)
